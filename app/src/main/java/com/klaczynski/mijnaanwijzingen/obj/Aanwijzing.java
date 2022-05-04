@@ -7,9 +7,9 @@ public class Aanwijzing {
             TYPE_VR = 3, TYPE_OVW = 4, TYPE_SB = 5;
 
     private int type;
-    private String location;
+    private String location; //Zowel enkel drgl-punt als traject tussen meerdere punten.
     private Date datum;
     private String trdl;
     private int treinNr;
-
+    private String miscInfo; //Reden, hulpverleners, baanwerkers, LAE borden wel/niet geplaatst etc
 }

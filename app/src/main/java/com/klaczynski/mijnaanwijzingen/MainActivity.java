@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = new AlertDialog.Builder(a).create();
         alertDialog.setTitle("Waarschuwing");
         alertDialog.setMessage("Het gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan " +
-                "niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan.");
+                "niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. " +
+                "De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ik ga akkoord.",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
