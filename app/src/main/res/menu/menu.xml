@@ -15,4 +15,15 @@
         android:orderInCategory="100"
         android:title="Activity test"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clearData"
+        android:orderInCategory="100"
+        android:title="Clear data"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_MockData"
+        android:orderInCategory="100"
+        android:title="Mock data"
+        app:showAsAction="never" />
 </menu>

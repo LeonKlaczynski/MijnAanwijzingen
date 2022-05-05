@@ -18,6 +18,7 @@ public class Aanwijzing {
     private String Overwegen, STSNbruggen;
 
     private String VRsnelheid, SBsnelheid;
+    private boolean VRschouw;
 
     public Aanwijzing(int type, String locatie, Date datum, String trdl,
                       int treinNr, String miscInfo, String naamMcn, String STSseinNr,
@@ -34,6 +35,25 @@ public class Aanwijzing {
         this.STSNbruggen = STSNbruggen;
         this.VRsnelheid = VRsnelheid;
         this.SBsnelheid = SBsnelheid;
+        this.VRschouw = false;
+    }
+
+    public Aanwijzing(int type, String locatie, Date datum, String trdl,
+                      int treinNr, String miscInfo, String naamMcn, String STSseinNr,
+                      String Overwegen, String STSNbruggen, String VRsnelheid, String SBsnelheid, boolean VRschouw) {
+        this.type = type;
+        this.locatie = locatie;
+        this.datum = datum;
+        this.trdl = trdl;
+        this.treinNr = treinNr;
+        this.miscInfo = miscInfo;
+        this.naamMcn = naamMcn;
+        this.STSseinNr = STSseinNr;
+        this.Overwegen = Overwegen;
+        this.STSNbruggen = STSNbruggen;
+        this.VRsnelheid = VRsnelheid;
+        this.SBsnelheid = SBsnelheid;
+        this.VRschouw = VRschouw;
     }
 
     public int getType() {
@@ -130,5 +150,13 @@ public class Aanwijzing {
 
     public void setSBsnelheid(String SBsnelheid) {
         this.SBsnelheid = SBsnelheid;
+    }
+
+    public boolean getVRschouw() {
+        return VRschouw;
+    }
+
+    public void setVRschouw(boolean VRschouw) {
+        this.VRschouw = VRschouw;
     }
 }

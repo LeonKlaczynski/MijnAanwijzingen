@@ -48,12 +48,12 @@ public class InOutOperator {
         return gson.fromJson(json, type);
     }
 
-    public ArrayList<Aanwijzing> loadListJson() {
+    public ArrayList<Aanwijzing> loadMockJson() {
         Gson gson = new Gson();
         String json = loadJSONFromAsset();
         Log.d(TAG, "loadMap: Geladen json: " + json);
         if (json == null || json.equals("null") || json.equals("[]")) {
-            Log.d(TAG, "loadArrayList: Geen data aanwezig, genereert nieuwe lijst..");
+            Log.d(TAG, "loadMockJson: Geen data aanwezig, genereert nieuwe lijst..");
             return new ArrayList<Aanwijzing>();
         }
         Type type = new TypeToken<ArrayList<Aanwijzing>>() {

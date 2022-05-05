@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="Kies type aanwijzing:"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonVR"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/VR"
+            android:text="Aanwijzing vr" />
+
+        <Button
+            android:id="@+id/buttonOVW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/OVW"
+            android:text="Aanwijzing OVW" />
+
+        <Button
+            android:id="@+id/buttonSB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/SB"
+            android:text="Aanwijzing SB" />
+
+        <Button
+            android:id="@+id/buttonSTS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/STS"
+            android:text="Aanwijzing STS" />
+
+        <Button
+            android:id="@+id/buttonSTSN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/STSN"
+            android:drawableTint="@color/STS"
+            android:text="Aanwijzing STS(N)"
+            android:textColor="@color/TTV" />
+
+        <Button
+            android:id="@+id/buttonTTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/TTV"
+            android:text="Aanwijzing TTV" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
