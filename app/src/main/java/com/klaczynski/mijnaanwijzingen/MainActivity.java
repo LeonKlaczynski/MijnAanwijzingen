@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.klaczynski.mijnaanwijzingen.misc.Definitions;
 
 public class MainActivity extends AppCompatActivity {
+    private boolean warningAcknowledged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         warningDialog(MainActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        //if(!warningAcknowledged) finishAffinity();
+        super.onResume();
     }
 
     @Override
@@ -46,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setMessage("Het gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan " +
                 "niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. " +
                 "De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ik ga akkoord.",
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Akkoord",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        warningAcknowledged = true;
                         dialog.dismiss();
                     }
                 });

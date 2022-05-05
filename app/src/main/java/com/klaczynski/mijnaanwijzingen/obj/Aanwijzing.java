@@ -12,4 +12,27 @@ public class Aanwijzing {
     private String trdl;
     private int treinNr;
     private String miscInfo; //Reden, hulpverleners, baanwerkers, LAE borden wel/niet geplaatst etc
+    private String naamMcn;
+
+    private String STSseinNr;
+    private String STSNoverwegen, STSNbruggen;
+
+    private String VRsnelheid, SBsnelheid;
+
+    public Aanwijzing(int type, String location, Date datum, String trdl,
+                      int treinNr, String miscInfo, String naamMcn, String STSseinNr,
+                      String STSNoverwegen, String STSNbruggen, String VRsnelheid, String SBsnelheid) {
+        this.type = type;
+        this.location = location;
+        this.datum = datum;
+        this.trdl = trdl;
+        this.treinNr = treinNr;
+        this.miscInfo = miscInfo;
+        this.naamMcn = naamMcn;
+        this.STSseinNr = STSseinNr;
+        this.STSNoverwegen = STSNoverwegen;
+        this.STSNbruggen = STSNbruggen;
+        this.VRsnelheid = VRsnelheid;
+        this.SBsnelheid = SBsnelheid;
+    }
 }
