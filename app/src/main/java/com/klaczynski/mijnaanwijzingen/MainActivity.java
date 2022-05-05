@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.action_testActivity:
                 Intent i = new Intent(this, CreationActivity.class);
-                i.putExtra("TYPE", R.layout.vr_create);
+                i.putExtra("TYPE", R.layout.ttv_create);
                 startActivity(i);
                 break;
         }

@@ -10,8 +10,12 @@ public class CreationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setTitle("Nieuwe aanwijzing");
         Intent i = getIntent();
         int TYPE = i.getIntExtra("TYPE", R.layout.vr_create);
         setContentView(TYPE);
+
+
     }
 }

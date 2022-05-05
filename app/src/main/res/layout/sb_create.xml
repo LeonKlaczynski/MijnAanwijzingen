@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/border_vr"
+    android:background="@drawable/border_sb"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="0dp">
 
@@ -27,7 +27,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                app:srcCompat="@drawable/ic_aanwvr" />
+                app:srcCompat="@drawable/ic_aanwsb" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="max. 40"
+                        android:hint="bijv. 80"
                         android:inputType="textPersonName" />
                 </LinearLayout>
 
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70sp"
                 android:ems="10"
-                android:hint="Bijv. Persoon op het spoor."
+                android:hint="Bijv. Toestand infra."
                 android:inputType="textPersonName" />
 
             <LinearLayout
@@ -185,21 +185,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:text="Hulpverleners"
+                    android:text="L/A/E Borden niet geplaatst."
                     android:textColor="@android:color/secondary_text_light"
                     android:textColorHighlight="@color/VR"
                     android:textColorLink="@color/VR" />
 
-                <CheckBox
-                    android:id="@+id/checkBoxSchouw"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Schouwopdracht"
-                    android:textColor="@android:color/secondary_text_light"
-                    android:textColorHighlight="@color/VR"
-                    android:textColorLink="@color/VR" />
             </LinearLayout>
         </LinearLayout>
 
@@ -208,9 +198,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:backgroundTint="@color/VR"
+            android:backgroundTint="@color/SB"
             android:text="Bevestigen"
-            app:rippleColor="@color/VRlight" />
+            app:rippleColor="@color/SBlight" />
 
     </LinearLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/border_vr"
+    android:background="@drawable/border_ttv"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="0dp">
 
@@ -27,7 +27,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                app:srcCompat="@drawable/ic_aanwvr" />
+                app:srcCompat="@drawable/ic_aanwttv" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,33 +98,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#F6F6F6"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textViewtrdl2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Maximale snelheid:"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/editTextSpeed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="max. 40"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -140,7 +113,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Plaatsbepaling:"
+                android:text="Emplacement:"
                 android:textSize="12sp" />
 
             <EditText
@@ -148,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70sp"
                 android:ems="10"
-                android:hint="Bijv. Asd - Wgm 24.6"
+                android:hint="Bijv. Wgm"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -171,36 +144,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="70sp"
                 android:ems="10"
-                android:hint="Bijv. Persoon op het spoor."
+                android:hint="Bijv. Aannemen aanwijzing"
                 android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/checkBoxLAE"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Hulpverleners"
-                    android:textColor="@android:color/secondary_text_light"
-                    android:textColorHighlight="@color/VR"
-                    android:textColorLink="@color/VR" />
-
-                <CheckBox
-                    android:id="@+id/checkBoxSchouw"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Schouwopdracht"
-                    android:textColor="@android:color/secondary_text_light"
-                    android:textColorHighlight="@color/VR"
-                    android:textColorLink="@color/VR" />
-            </LinearLayout>
         </LinearLayout>
 
         <Button
@@ -208,9 +154,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:backgroundTint="@color/VR"
+            android:backgroundTint="@color/TTV"
             android:text="Bevestigen"
-            app:rippleColor="@color/VRlight" />
+            app:rippleColor="@color/TTVlight" />
 
     </LinearLayout>
 
