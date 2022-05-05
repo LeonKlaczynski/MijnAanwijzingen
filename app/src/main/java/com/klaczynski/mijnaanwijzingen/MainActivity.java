@@ -6,13 +6,16 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,7 +32,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private boolean warningAcknowledged = false;
-    public static ArrayList<Aanwijzing> aanwijzingen = new ArrayList<>();
+    public static ArrayList<Aanwijzing> aanwijzingen;
     private InOutOperator io;
 
     @Override
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             aanwijzingen = io.loadList(Definitions.LIJST_KEY);
         } catch (Exception e) {
             Log.e(TAG, "onCreate: ", e.fillInStackTrace());
+            aanwijzingen = new ArrayList<Aanwijzing>();
         }
         //MockData.addData();
 
@@ -187,9 +191,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateView() {
             ListView lijst = findViewById(R.id.lijst);
-            /*((ArrayAdapter) lijst.getAdapter()).clear();
-            ((ArrayAdapter) lijst.getAdapter()).addAll(aanwijzingen);*/
-            ((ArrayAdapter) lijst.getAdapter()).notifyDataSetChanged();
+            ArrayList<Aanwijzing> aTemp = new ArrayList<>();
+            aTemp.addAll(aanwijzingen);
+            ((ArrayAdapter) lijst.getAdapter()).clear();
+            ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
+            ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
     }
 
     @Override
