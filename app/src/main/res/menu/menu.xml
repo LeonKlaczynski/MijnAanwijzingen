@@ -9,4 +9,10 @@
         android:orderInCategory="100"
         android:title="Disclaimer"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_testActivity"
+        android:orderInCategory="100"
+        android:title="Activity test"
+        app:showAsAction="never" />
 </menu>

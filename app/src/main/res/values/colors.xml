@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="VR">#d9ce25</color>
+    <color name="VRlight">#FFFDDE</color>
+    <color name="OVW">#e26a29</color>
+    <color name="OVWlight">#FFE1D1</color>
+    <color name="SB">#2984e2</color>
+    <color name="SBlight">#DAECFF</color>
+    <color name="STS">#ca2c2c</color>
+    <color name="STSlight">#FFD5D5</color>
+    <color name="STSN">#ca2c2c</color>
+    <color name="STSNlight">#FFD5D5</color>
+    <color name="TTV">#46a94d</color>
+    <color name="TTVlight">#D6FFD9</color>
 </resources>
