@@ -19,6 +19,7 @@ public class InOutOperator {
 
     private static final String TAG = "InOutOperator"; //debug tag
     Activity activity;
+    public boolean twentyFourHourFormat = true;
 
     public InOutOperator(Activity activity) {
         this.activity = activity;
@@ -64,7 +65,10 @@ public class InOutOperator {
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = activity.getAssets().open("mockdata.json");
+            String dataSource = "mockdata.json";
+            if(!twentyFourHourFormat)
+                dataSource = "mock_us_data.json";
+            InputStream is = activity.getAssets().open(dataSource);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -75,5 +79,19 @@ public class InOutOperator {
             return null;
         }
         return json;
+    }
+
+    public void saveName(String name, String key) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, name);
+        editor.apply();
+    }
+
+    public String loadName(String key) {
+        String name = "";
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        name = prefs.getString(key, null);
+        return name;
     }
 }

@@ -5,25 +5,23 @@
     tools:context="com.klaczynski.mijnaanwijzingen.MainActivity">
 
     <item
-        android:id="@+id/action_disclaimer"
+        android:id="@+id/action_name"
         android:orderInCategory="100"
-        android:title="Disclaimer"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_testActivity"
-        android:orderInCategory="100"
-        android:title="Activity test"
+        android:title="Naam wijzigen"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_clearData"
         android:orderInCategory="100"
-        android:title="Clear data"
+        android:title="Alles verwijderen"
         app:showAsAction="never" />
-
+    <item
+        android:id="@+id/action_disclaimer"
+        android:orderInCategory="100"
+        android:title="Disclaimer"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_MockData"
         android:orderInCategory="100"
-        android:title="Mock data"
+        android:title="Testdata"
         app:showAsAction="never" />
 </menu>

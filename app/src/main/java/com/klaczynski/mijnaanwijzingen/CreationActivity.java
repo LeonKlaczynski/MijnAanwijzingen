@@ -85,6 +85,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setMiscInfo(etReden.getText().toString());
                                 nieuweAanwijzing.setVRhulpverleners(cbPersonnel.isChecked());
                                 nieuweAanwijzing.setVRschouw(cbSchouw.isChecked());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;
@@ -103,6 +104,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setTrdl(etTrdl.getText().toString());
                                 nieuweAanwijzing.setOverwegen(etCrossings.getText().toString());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;
@@ -125,6 +127,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setSBLAE(cbLAE.isChecked());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
                                 nieuweAanwijzing.setMiscInfo(etReden2.getText().toString());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;
@@ -143,6 +146,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setTrdl(etTrdl.getText().toString());
                                 nieuweAanwijzing.setSTSseinNr(etSignal.getText().toString());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;
@@ -166,6 +170,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setSTSNbruggen(etBridges.getText().toString());
                                 nieuweAanwijzing.setOverwegen(etCrossings2.getText().toString());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;
@@ -184,6 +189,7 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setTrdl(etTrdl.getText().toString());
                                 nieuweAanwijzing.setMiscInfo(etReden3.getText().toString());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
+                                nieuweAanwijzing.setNaamMcn(MainActivity.driverName);
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;

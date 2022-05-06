@@ -251,7 +251,7 @@
                 android:layout_height="30sp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Bijv. Joop"
+                android:hint="FOUT: Geen naam bekend!"
                 android:inputType="textPersonName"
                 android:paddingTop="5sp"
                 android:textColor="@color/black"
