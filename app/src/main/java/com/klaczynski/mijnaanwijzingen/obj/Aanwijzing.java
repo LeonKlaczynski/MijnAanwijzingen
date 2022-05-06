@@ -18,7 +18,7 @@ public class Aanwijzing {
     private String Overwegen, STSNbruggen;
 
     private String VRsnelheid, SBsnelheid;
-    private boolean VRschouw;
+    private boolean VRschouw, VRhulpverleners, SBLAE;
 
     public Aanwijzing(int type, String locatie, Date datum, String trdl,
                       int treinNr, String miscInfo, String naamMcn, String STSseinNr,
@@ -36,6 +36,8 @@ public class Aanwijzing {
         this.VRsnelheid = VRsnelheid;
         this.SBsnelheid = SBsnelheid;
         this.VRschouw = false;
+        this.VRhulpverleners = false;
+        this.SBLAE = false;
     }
 
     public Aanwijzing(int type, String locatie, Date datum, String trdl,
@@ -54,6 +56,27 @@ public class Aanwijzing {
         this.VRsnelheid = VRsnelheid;
         this.SBsnelheid = SBsnelheid;
         this.VRschouw = VRschouw;
+    }
+
+    public Aanwijzing(int type, String locatie, Date datum, String trdl,
+                      int treinNr, String miscInfo, String naamMcn, String STSseinNr,
+                      String Overwegen, String STSNbruggen, String VRsnelheid, String SBsnelheid, boolean VRschouw,
+                      boolean VRhulpverleners, boolean SBLAE) {
+        this.type = type;
+        this.locatie = locatie;
+        this.datum = datum;
+        this.trdl = trdl;
+        this.treinNr = treinNr;
+        this.miscInfo = miscInfo;
+        this.naamMcn = naamMcn;
+        this.STSseinNr = STSseinNr;
+        this.Overwegen = Overwegen;
+        this.STSNbruggen = STSNbruggen;
+        this.VRsnelheid = VRsnelheid;
+        this.SBsnelheid = SBsnelheid;
+        this.VRschouw = VRschouw;
+        this.VRhulpverleners = VRhulpverleners;
+        this.SBLAE = SBLAE;
     }
 
     public int getType() {
@@ -158,5 +181,21 @@ public class Aanwijzing {
 
     public void setVRschouw(boolean VRschouw) {
         this.VRschouw = VRschouw;
+    }
+
+    public boolean getVRhulpverleners() {
+        return VRhulpverleners;
+    }
+
+    public void setVRhulpverleners(boolean VRhulpverleners) {
+        this.VRhulpverleners = VRhulpverleners;
+    }
+
+    public boolean getLAE() {
+        return SBLAE;
+    }
+
+    public void setSBLAE(boolean SBLAE) {
+        this.SBLAE = SBLAE;
     }
 }

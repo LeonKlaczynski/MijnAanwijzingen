@@ -205,7 +205,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="L/A/E Borden niet geplaatst."
+                    android:text="L/A/E Borden geplaatst."
                     android:textColor="@android:color/secondary_text_light"
                     android:textColorHighlight="@color/VR"
                     android:textColorLink="@color/VR" />

@@ -82,7 +82,8 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setTrdl(etTrdl.getText().toString());
                                 nieuweAanwijzing.setVRsnelheid(etSnelheid.getText().toString());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
-                                nieuweAanwijzing.setMiscInfo((cbPersonnel.isChecked() ? "Hulpverleners aanwezig. " : "")+etReden.getText().toString());
+                                nieuweAanwijzing.setMiscInfo(etReden.getText().toString());
+                                nieuweAanwijzing.setVRhulpverleners(cbPersonnel.isChecked());
                                 nieuweAanwijzing.setVRschouw(cbSchouw.isChecked());
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
@@ -121,8 +122,9 @@ public class CreationActivity extends AppCompatActivity {
                                 nieuweAanwijzing.setTreinNr(Integer.parseInt(etTrNr.getText().toString()));
                                 nieuweAanwijzing.setTrdl(etTrdl.getText().toString());
                                 nieuweAanwijzing.setSBsnelheid(etSpeed.getText().toString());
+                                nieuweAanwijzing.setSBLAE(cbLAE.isChecked());
                                 nieuweAanwijzing.setLocatie(etLocatie.getText().toString());
-                                nieuweAanwijzing.setMiscInfo((cbLAE.isChecked() ? "L/A/E wel geplaatst. " : "L/A/E niet geplaatst. ")+etReden2.getText().toString());
+                                nieuweAanwijzing.setMiscInfo(etReden2.getText().toString());
                                 MainActivity.aanwijzingen.add(0, nieuweAanwijzing);
                                 finish();
                                 break;

@@ -103,6 +103,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
                 TextView speedVR = viewDialog.findViewById(R.id.editTextSpeedVR);
                 TextView reasonVR = viewDialog.findViewById(R.id.editTextReasonVR);
                 CheckBox cbSchouwVR = viewDialog.findViewById(R.id.checkBoxSchouwVR);
+                CheckBox cbPersonnelVR = viewDialog.findViewById(R.id.checkBoxPersonnelVR);
                 TextView nameVR = viewDialog.findViewById(R.id.editTextNameDriverVR);
                 TextView dateVR = viewDialog.findViewById(R.id.editTextDateVR);
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -113,6 +114,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
                 speedVR.setText(a.getVRsnelheid());
                 reasonVR.setText(a.getMiscInfo());
                 cbSchouwVR.setChecked(a.getVRschouw());
+                cbPersonnelVR.setChecked(a.getVRhulpverleners());
                 nameVR.setText(a.getNaamMcn());
                 dateVR.setText(dateString);
 
@@ -156,7 +158,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
                 trdlViewSB.setText(a.getTrdl());
                 locationViewSB.setText(a.getLocatie());
                 speedSB.setText(a.getSBsnelheid());
-                //cbLAE.setChecked(a.getLAE); //TODO
+                cbLAE.setChecked(a.getLAE());
                 reasonSB.setText(a.getMiscInfo());
                 nameSB.setText(a.getNaamMcn());
                 dateSB.setText(dateStringSB);
