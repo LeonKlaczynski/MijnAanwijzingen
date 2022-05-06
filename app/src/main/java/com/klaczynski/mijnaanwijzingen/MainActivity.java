@@ -92,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(driverName.equalsIgnoreCase("")) {
+                    nameDialog();
+                    return;
+                }
+
                 Dialog dialog = new Dialog(view.getContext());
                 dialog.setContentView(R.layout.aanwijzingen_menu);
                 dialog.show();

@@ -1,217 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@drawable/border_vr"
-    tools:layout_editor_absoluteX="-1dp"
-    tools:layout_editor_absoluteY="0dp">
 
-    <LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_vr"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="0dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageViewAanwijzing"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                app:srcCompat="@drawable/ic_aanwvr" />
+            android:layout_height="match_parent"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewAanwijzing"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    app:srcCompat="@drawable/ic_aanwvr" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="76dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#F6F6F6"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewTrNr"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Treinnummer:"
-                            android:textSize="12sp" />
-
-                        <EditText
-                            android:id="@+id/editTextTrNr"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:hint="bv. 1234"
-                            android:inputType="textPersonName" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="76dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#F6F6F6"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewtrdl"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Treindienstleider:"
-                            android:textSize="12sp" />
-
-                        <EditText
-                            android:id="@+id/editTextTrdl"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:hint="bv. Ut"
-                            android:inputType="textPersonName" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#F6F6F6"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textViewtrdl2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="76dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:background="#F6F6F6"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewTrNr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Treinnummer:"
+                                android:textSize="12sp" />
+
+                            <EditText
+                                android:id="@+id/editTextTrNr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="bv. 1234"
+                                android:inputType="textPersonName" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="76dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:background="#F6F6F6"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewtrdl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Treindienstleider:"
+                                android:textSize="12sp" />
+
+                            <EditText
+                                android:id="@+id/editTextTrdl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="bv. Ut"
+                                android:inputType="textPersonName" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#F6F6F6"
                         android:gravity="center"
-                        android:text="Maximale snelheid:"
-                        android:textSize="12sp" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/editTextSpeed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="max. 40"
-                        android:inputType="textPersonName" />
+                        <TextView
+                            android:id="@+id/textViewtrdl2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Maximale snelheid:"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/editTextSpeed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="max. 40"
+                            android:inputType="textPersonName" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#F6F6F6"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Plaatsbepaling:"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/editTextLocation"
-                android:layout_width="match_parent"
-                android:layout_height="70sp"
-                android:ems="10"
-                android:hint="Bijv. Asd - Wgm 24.6"
-                android:inputType="textPersonName" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#F6F6F6"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reden:"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/editTextReason"
-                android:layout_width="match_parent"
-                android:layout_height="70sp"
-                android:ems="10"
-                android:hint="Bijv. Persoon op het spoor."
-                android:inputType="textPersonName" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#F6F6F6"
+                android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/checkBoxPersonnel"
+                <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Hulpverleners"
-                    android:textColor="@android:color/secondary_text_light"
-                    android:textColorHighlight="@color/VR"
-                    android:textColorLink="@color/VR" />
+                    android:layout_height="wrap_content"
+                    android:text="Plaatsbepaling:"
+                    android:textSize="12sp" />
 
-                <CheckBox
-                    android:id="@+id/checkBoxSchouw"
+                <EditText
+                    android:id="@+id/editTextLocation"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Schouwopdracht"
-                    android:textColor="@android:color/secondary_text_light"
-                    android:textColorHighlight="@color/VR"
-                    android:textColorLink="@color/VR" />
+                    android:layout_height="70sp"
+                    android:ems="10"
+                    android:hint="Bijv. Asd - Wgm 24.6"
+                    android:inputType="textPersonName" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#F6F6F6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reden:"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/editTextReason"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:ems="10"
+                    android:hint="Bijv. Persoon op het spoor."
+                    android:inputType="textPersonName" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBoxPersonnel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="Hulpverleners"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textColorHighlight="@color/VR"
+                        android:textColorLink="@color/VR" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxSchouw"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="Schouwopdracht"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textColorHighlight="@color/VR"
+                        android:textColorLink="@color/VR" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonAcklowledge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/VR"
+                android:text="Bevestigen"
+                app:rippleColor="@color/VRlight" />
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonAcklowledge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/VR"
-            android:text="Bevestigen"
-            app:rippleColor="@color/VRlight" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
