@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         if (!Definitions.DEBUG)
-        warningDialog(MainActivity.this);
+            warningDialog(MainActivity.this);
         try {
             aanwijzingen = io.loadList(Definitions.LIJST_KEY);
         } catch (Exception e) {
@@ -53,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //MockData.addData();
 
-        AanwijzingenAdapter adapter = new AanwijzingenAdapter(this.getApplicationContext(), aanwijzingen);
+        AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
         ListView lijst = findViewById(R.id.lijst);
         lijst.setAdapter(adapter);
-        lijst.setClickable(true);
 
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -190,12 +191,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateView() {
-            ListView lijst = findViewById(R.id.lijst);
-            ArrayList<Aanwijzing> aTemp = new ArrayList<>();
-            aTemp.addAll(aanwijzingen);
-            ((ArrayAdapter) lijst.getAdapter()).clear();
-            ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
-            ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
+        ListView lijst = findViewById(R.id.lijst);
+        ArrayList<Aanwijzing> aTemp = new ArrayList<>();
+        aTemp.addAll(aanwijzingen);
+        ((ArrayAdapter) lijst.getAdapter()).clear();
+        ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
+        ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
     }
 
     @Override

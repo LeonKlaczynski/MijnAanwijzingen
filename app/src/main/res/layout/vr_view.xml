@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/border_vr"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageViewAanwijzing"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                app:srcCompat="@drawable/ic_aanwvr" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="76dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="#F6F6F6"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewTrNr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Treinnummer:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/editTextTrNrVR"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="bv. 1234"
+                            android:inputType="textPersonName"
+                            android:paddingTop="5sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="76dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="#F6F6F6"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewtrdl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Treindienstleider:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/editTextTrdlVR"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:paddingTop="5sp"
+                            android:gravity="center"
+                            android:ems="10"
+                            android:hint="bv. Ut"
+                            android:inputType="textPersonName" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#F6F6F6"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewtrdl2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Maximale snelheid:"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/editTextSpeedVR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:ems="10"
+                        android:hint="max. 40"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#F6F6F6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plaatsbepaling:"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/editTextLocationVR"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:ems="10"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="5sp"
+                android:gravity="center"
+                android:hint="Bijv. Asd - Wgm 24.6"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#F6F6F6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reden:"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/editTextReasonVR"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:ems="10"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="5sp"
+                android:gravity="center"
+                android:hint="Bijv. Persoon op het spoor."
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBoxPersonnelVR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="Hulpverleners"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textColorHighlight="@color/VR"
+                    android:textColorLink="@color/VR" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxSchouwVR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="Schouwopdracht"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textColorHighlight="@color/VR"
+                    android:textColorLink="@color/VR" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="De machinist brengt de trein tot stilstand, indien de veiligheid dit vordert."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#F6F6F6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Naam machinist + datum:"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/editTextNameDriverVR"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Bijv. Joop"
+                android:inputType="textPersonName"
+                android:paddingTop="5sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/editTextDateVR"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Bijv. 2022-05-05 20:55:45"
+                android:inputType="textPersonName"
+                android:paddingTop="5sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
