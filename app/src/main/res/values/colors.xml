@@ -10,15 +10,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="VR">#d9ce25</color>
-    <color name="VRlight">#FFFEEE</color>
+    <color name="VRlight">#FFFEF6</color>
     <color name="OVW">#e26a29</color>
-    <color name="OVWlight">#FFF3ED</color>
+    <color name="OVWlight">#FFF8F5</color>
     <color name="SB">#2984e2</color>
-    <color name="SBlight">#F2F8FF</color>
+    <color name="SBlight">#F7FAFF</color>
     <color name="STS">#ca2c2c</color>
-    <color name="STSlight">#FFEDED</color>
+    <color name="STSlight">#FFF5F5</color>
     <color name="STSN">#ca2c2c</color>
-    <color name="STSNlight">#FFECEC</color>
+    <color name="STSNlight">#FFF3F3</color>
     <color name="TTV">#46a94d</color>
-    <color name="TTVlight">#F0FFF1</color>
+    <color name="TTVlight">#F3FFF4</color>
 </resources>
