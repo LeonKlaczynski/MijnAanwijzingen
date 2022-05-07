@@ -63,6 +63,10 @@ public class CreationActivity extends AppCompatActivity {
                     EditText etTrNr = findViewById(R.id.editTextTrNr);
                     EditText etTrdl = findViewById(R.id.editTextTrdl);
                     EditText etLocatie = findViewById(R.id.editTextLocation);
+                    if(etTrNr.getText().toString().equalsIgnoreCase(""))
+                        etTrNr.setError("Geen invoer");
+                    if(etLocatie.getText().toString().equalsIgnoreCase(""))
+                        etLocatie.setError("Geen invoer");
                     if(type != -1) {
                         switch(type) {
                             case Aanwijzing.TYPE_VR:
@@ -70,6 +74,10 @@ public class CreationActivity extends AppCompatActivity {
                                 EditText etReden = findViewById(R.id.editTextReason);
                                 CheckBox cbPersonnel = findViewById(R.id.checkBoxPersonnel);
                                 CheckBox cbSchouw = findViewById(R.id.checkBoxSchouw);
+                                if(etSnelheid.getText().toString().equalsIgnoreCase(""))
+                                    etSnelheid.setError("Geen invoer");
+                                if(etReden.getText().toString().equalsIgnoreCase(""))
+                                    etReden.setError("Geen invoer");
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etSnelheid.getText().toString().equalsIgnoreCase("") ||
                                         etLocatie.getText().toString().equalsIgnoreCase("") || (etReden.getText().toString().equalsIgnoreCase("") && !cbPersonnel.isChecked())) {
@@ -92,6 +100,8 @@ public class CreationActivity extends AppCompatActivity {
 
                             case Aanwijzing.TYPE_OVW:
                                 EditText etCrossings = findViewById(R.id.editTextCrossings);
+                                if(etCrossings.getText().toString().equalsIgnoreCase(""))
+                                    etCrossings.setError("Geen invoer");
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etCrossings.getText().toString().equalsIgnoreCase("") ||
                                 etLocatie.getText().toString().equalsIgnoreCase("")) {
@@ -113,6 +123,10 @@ public class CreationActivity extends AppCompatActivity {
                                 EditText etReden2 = findViewById(R.id.editTextReason);
                                 EditText etSpeed = findViewById(R.id.editTextSpeed);
                                 CheckBox cbLAE = findViewById(R.id.checkBoxLAE);
+                                if(etReden2.getText().toString().equalsIgnoreCase(""))
+                                    etReden2.setError("Geen invoer");
+                                if(etSpeed.getText().toString().equalsIgnoreCase(""))
+                                    etSpeed.setError("Geen invoer");
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etReden2.getText().toString().equalsIgnoreCase("") ||
                                         etLocatie.getText().toString().equalsIgnoreCase("") || etSpeed.getText().toString().equalsIgnoreCase("")) {
@@ -134,6 +148,8 @@ public class CreationActivity extends AppCompatActivity {
 
                             case Aanwijzing.TYPE_STS:
                                 EditText etSignal = findViewById(R.id.editTextSignal);
+                                if(etSignal.getText().toString().equalsIgnoreCase(""))
+                                    etSignal.setError("Geen invoer");
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etLocatie.getText().toString().equalsIgnoreCase("") ||
                                         etSignal.getText().toString().equalsIgnoreCase("")) {
@@ -155,6 +171,13 @@ public class CreationActivity extends AppCompatActivity {
                                 EditText etSignal2 = findViewById(R.id.editTextSignal);
                                 EditText etCrossings2 = findViewById(R.id.editTextCrossings);
                                 EditText etBridges = findViewById(R.id.editTextBridges);
+                                if(etSignal2.getText().toString().equalsIgnoreCase(""))
+                                    etSignal2.setError("Geen invoer");
+                                if(etCrossings2.getText().toString().equalsIgnoreCase(""))
+                                    etCrossings2.setError("Geen invoer");
+                                if(etBridges.getText().toString().equalsIgnoreCase(""))
+                                    etBridges.setError("Geen invoer");
+
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etLocatie.getText().toString().equalsIgnoreCase("") ||
                                         etSignal2.getText().toString().equalsIgnoreCase("") || etCrossings2.getText().toString().equalsIgnoreCase("") ||
@@ -177,6 +200,8 @@ public class CreationActivity extends AppCompatActivity {
 
                             case Aanwijzing.TYPE_TTV:
                                 EditText etReden3 = findViewById(R.id.editTextReason);
+                                if(etReden3.getText().toString().equalsIgnoreCase(""))
+                                    etReden3.setError("Geen invoer");
 
                                 if(etTrNr.getText().toString().equalsIgnoreCase("") || etLocatie.getText().toString().equalsIgnoreCase("") ||
                                         etReden3.getText().toString().equalsIgnoreCase("")) {
