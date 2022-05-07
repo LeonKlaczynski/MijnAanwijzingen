@@ -10,6 +10,18 @@
         android:title="Naam wijzigen"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_write_backup"
+        android:visible="false"
+        android:orderInCategory="100"
+        android:title="Backup maken"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_read_backup"
+        android:visible="false"
+        android:orderInCategory="100"
+        android:title="Backup terugzetten"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_clearData"
         android:orderInCategory="100"
         android:title="Alles verwijderen"

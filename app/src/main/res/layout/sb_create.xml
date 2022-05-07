@@ -68,7 +68,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:hint="bv. 1234"
-                                android:inputType="textPersonName" />
+                                android:inputType="number" />
 
                         </LinearLayout>
 
@@ -126,7 +126,7 @@
                             android:layout_weight="1"
                             android:ems="10"
                             android:hint="bijv. 80"
-                            android:inputType="textPersonName" />
+                            android:inputType="number" />
                     </LinearLayout>
 
                 </LinearLayout>

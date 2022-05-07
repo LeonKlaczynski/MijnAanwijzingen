@@ -1,19 +1,27 @@
 package com.klaczynski.mijnaanwijzingen.io;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.klaczynski.mijnaanwijzingen.MainActivity;
+import com.klaczynski.mijnaanwijzingen.misc.Definitions;
 import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class InOutOperator {
 
@@ -93,5 +101,68 @@ public class InOutOperator {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         name = prefs.getString(key, null);
         return name;
+    }
+
+    public ArrayList<Aanwijzing> readJsonFromStorage(Context context) {
+        File file = new File(commonDocumentDirPath("Mijn Aanwijzingen") + "/" + Definitions.BACKUP_FILE_NAME);
+        byte[] content = new byte[(int) file.length()];
+        Gson gson = new Gson();
+        String json = "";
+        try {
+            FileInputStream stream = new FileInputStream(file);
+            stream.read(content);
+            json = new String(content);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Fout opgetreden!", Toast.LENGTH_LONG).show();
+        }
+        if (json == null || json.equals("null") || json.equals("[]") || json.equals("")) {
+            Log.d(TAG, "readJsonFromStorage: Geen data aanwezig, houdt huidige lijst..");
+            return MainActivity.aanwijzingen;
+        }
+        Type type = new TypeToken<ArrayList<Aanwijzing>>() {
+        }.getType();
+        return gson.fromJson(json, type);
+    }
+
+    public void writeJsonToStorage(Context context, ArrayList<Aanwijzing> aanwijzingen){
+        File dir = commonDocumentDirPath("Mijn Aanwijzingen");
+        Gson gson = new Gson();
+        String json = gson.toJson(aanwijzingen);
+
+        try {
+            File file = new File(dir, Definitions.BACKUP_FILE_NAME);
+            FileWriter writer = new FileWriter(file);
+            writer.append(json);
+            writer.flush();
+            writer.close();
+
+            Log.d(TAG, "writeJsonToStorage: Opgeslagen json: " + json+" naar pad: "+file.getAbsolutePath());
+            Toast.makeText(context, "Backup opgeslagen naar pad: "+file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(Definitions.BACKUP_SET_KEY, Definitions.BACKUP_SET_KEY);
+            editor.apply();
+        } catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(context, "Fout opgetreden!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static File commonDocumentDirPath(String FolderName) { //This is terrible. Thanks Android.
+        File dir = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + FolderName);
+        }
+        else
+            dir = new File(Environment.getExternalStorageDirectory() + File.separator + FolderName);
+
+        if (!dir.exists()) {
+            boolean success = dir.mkdirs();
+            if (!success) {
+                dir = null;
+            }
+        }
+        return dir;
     }
 }
