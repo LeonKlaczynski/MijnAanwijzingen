@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         io = new InOutOperator(MainActivity.this);
         io.twentyFourHourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher_foreground);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher_mijnaanwijzingen_icon_white_foreground);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
             warningDialog(MainActivity.this);

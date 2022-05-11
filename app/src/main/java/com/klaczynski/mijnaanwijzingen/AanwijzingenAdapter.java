@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
@@ -36,8 +37,8 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         TextView locationView = convertView.findViewById(R.id.textViewLocation);
         TextView mainInfoView = convertView.findViewById(R.id.textViewMainInfo);
         TextView dateView = convertView.findViewById(R.id.textViewDate);
-        ImageView icon = convertView.findViewById(R.id.imageView);
-        LinearLayout layout = (LinearLayout) convertView;
+        TextView icon = convertView.findViewById(R.id.typeView);
+        LinearLayout layout = (LinearLayout) convertView.findViewById(R.id.item_layout_bg);
 
         /*layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,32 +57,38 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         //Setting type-specific data
         switch (a.getType()) {
             case Aanwijzing.TYPE_VR:
-                icon.setImageResource(R.drawable.ic_aanwvr);
+                icon.setBackgroundResource(R.color.VR);
+                icon.setText("VR");
                 layout.setBackgroundResource(R.color.VRlight);
-                mainInfoView.setText("Snelheid: " + a.getVRsnelheid() + ". Reden: " + a.getMiscInfo());
+                mainInfoView.setText("Snelheid: " + a.getVRsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_OVW:
-                icon.setImageResource(R.drawable.ic_aanwovw);
+                icon.setBackgroundResource(R.color.OVW);
+                icon.setText("OVW");
                 layout.setBackgroundResource(R.color.OVWlight);
                 mainInfoView.setText("Overwegen: " + a.getOverwegen() + ".");
                 break;
             case Aanwijzing.TYPE_SB:
-                icon.setImageResource(R.drawable.ic_aanwsb);
+                icon.setBackgroundResource(R.color.SB);
+                icon.setText("SB");
                 layout.setBackgroundResource(R.color.SBlight);
-                mainInfoView.setText("Snelheid: " + a.getSBsnelheid() + ". Reden: " + a.getMiscInfo());
+                mainInfoView.setText("Snelheid: " + a.getSBsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_STS:
-                icon.setImageResource(R.drawable.ic_aanwsts);
+                icon.setBackgroundResource(R.color.STS);
+                icon.setText("STS");
                 layout.setBackgroundResource(R.color.STSlight);
                 mainInfoView.setText("Sein: " + a.getSTSseinNr());
                 break;
             case Aanwijzing.TYPE_STSN:
-                icon.setImageResource(R.drawable.ic_aanwstsn);
+                icon.setBackgroundResource(R.drawable.border_stsn_icon);
+                icon.setText("STS");
                 layout.setBackgroundResource(R.color.STSNlight);
                 mainInfoView.setText("Sein: " + a.getSTSseinNr() + ". Overwegen: " + a.getOverwegen() + ". Bruggen: " + a.getSTSNbruggen());
                 break;
             case Aanwijzing.TYPE_TTV:
-                icon.setImageResource(R.drawable.ic_aanwttv);
+                icon.setBackgroundResource(R.color.TTV);
+                icon.setText("TTV");
                 layout.setBackgroundResource(R.color.TTVlight);
                 mainInfoView.setText("Reden: " + a.getMiscInfo());
                 break;
