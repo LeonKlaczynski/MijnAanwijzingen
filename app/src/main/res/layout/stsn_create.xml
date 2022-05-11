@@ -202,7 +202,7 @@
                     android:layout_height="70sp"
                     android:ems="10"
                     android:hint="Bijv. 78.9, 90.1 etc."
-                    android:inputType="number|text" />
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
