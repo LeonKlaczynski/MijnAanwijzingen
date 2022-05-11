@@ -27,7 +27,7 @@ public class InOutOperator {
 
     private static final String TAG = "InOutOperator"; //debug tag
     Activity activity;
-    public boolean twentyFourHourFormat = true;
+    public boolean systemUses24HourFormat = true;
 
     public InOutOperator(Activity activity) {
         this.activity = activity;
@@ -74,7 +74,7 @@ public class InOutOperator {
         String json = null;
         try {
             String dataSource = "mockdata.json";
-            if(!twentyFourHourFormat)
+            if(!systemUses24HourFormat)
                 dataSource = "mock_us_data.json";
             InputStream is = activity.getAssets().open(dataSource);
             int size = is.available();

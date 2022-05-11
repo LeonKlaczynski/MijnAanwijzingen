@@ -9,7 +9,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,11 +17,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,10 +30,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.klaczynski.mijnaanwijzingen.io.InOutOperator;
-import com.klaczynski.mijnaanwijzingen.io.MockData;
 import com.klaczynski.mijnaanwijzingen.misc.Definitions;
 import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
 
@@ -49,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
     private InOutOperator io;
     public static String driverName = "";
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         io = new InOutOperator(MainActivity.this);
-        io.twentyFourHourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
+        io.systemUses24HourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
         getSupportActionBar().setIcon(R.mipmap.ic_launcher_mijnaanwijzingen_icon_white_foreground);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

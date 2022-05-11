@@ -1,9 +1,11 @@
 package com.klaczynski.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -24,6 +26,8 @@ public class CreationActivity extends AppCompatActivity {
         Intent i = getIntent();
         int TYPE = i.getIntExtra("TYPE", R.layout.vr_create);
         setContentView(TYPE);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         if(TYPE != 0) {
         switch(TYPE) {
@@ -222,6 +226,17 @@ public class CreationActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
