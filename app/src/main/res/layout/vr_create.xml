@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/border_vr"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="0dp">
 
@@ -19,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundGravity="center"
+            android:background="@drawable/border_vr"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -60,8 +60,8 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treinnummer:"
+                                android:textColor="@color/black"
+                                android:text="Treinnummer"
                                 android:textSize="12sp" />
 
                             <EditText
@@ -89,8 +89,8 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treindienstleider:"
+                                android:textColor="@color/black"
+                                android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
                             <EditText
@@ -118,8 +118,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Maximale snelheid:"
+                            android:textColor="@color/black"
+                            android:text="Maximale snelheid"
                             android:textSize="12sp" />
 
                         <EditText
@@ -147,7 +147,8 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Plaatsbepaling:"
+                    android:textColor="@color/black"
+                    android:text="Plaatsbepaling"
                     android:textSize="12sp" />
 
                 <EditText
@@ -170,7 +171,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Reden:"
+                    android:textColor="@color/black"
+                    android:text="Reden"
                     android:textSize="12sp" />
 
                 <EditText
@@ -193,6 +195,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:text="Hulpverleners"
+                        android:buttonTint="@color/VR"
                         android:textColor="@android:color/secondary_text_light"
                         android:textColorHighlight="@color/VR"
                         android:textColorLink="@color/VR" />
@@ -203,6 +206,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:buttonTint="@color/VR"
                         android:text="Schouwopdracht"
                         android:textColor="@android:color/secondary_text_light"
                         android:textColorHighlight="@color/VR"

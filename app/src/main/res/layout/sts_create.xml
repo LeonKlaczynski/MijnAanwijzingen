@@ -58,8 +58,8 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treinnummer:"
+                                android:textColor="@color/black"
+                                android:text="Treinnummer"
                                 android:textSize="12sp" />
 
                             <EditText
@@ -86,8 +86,8 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treindienstleider:"
+                                android:textColor="@color/black"
+                                android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
                             <EditText
@@ -117,7 +117,8 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Emplacement:"
+                    android:textColor="@color/black"
+                    android:text="Emplacement"
                     android:textSize="12sp" />
 
                 <EditText
@@ -140,7 +141,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Seinnummer:"
+                    android:textColor="@color/black"
+                    android:text="Seinnummer"
                     android:textSize="12sp" />
 
                 <EditText

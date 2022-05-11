@@ -9,14 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/border_sb"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="0dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundGravity="center"
+            android:background="@drawable/border_sb"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -58,8 +59,8 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treinnummer:"
+                                android:textColor="@color/black"
+                                android:text="Treinnummer"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -90,8 +91,8 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treindienstleider:"
+                                android:textColor="@color/black"
+                                android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -122,9 +123,9 @@
                             android:id="@+id/textViewtrdl2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/black"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Maximale snelheid:"
+                            android:text="Maximale snelheid"
                             android:textSize="12sp" />
 
                         <TextView
@@ -155,7 +156,8 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Plaatsbepaling:"
+                    android:textColor="@color/black"
+                    android:text="Plaatsbepaling"
                     android:textSize="12sp" />
 
                 <TextView
@@ -182,7 +184,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Reden:"
+                    android:textColor="@color/black"
+                    android:text="Reden"
                     android:textSize="12sp" />
 
                 <TextView
@@ -206,6 +209,7 @@
                         android:id="@+id/checkBoxLAE"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:buttonTint="@color/SB"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:enabled="false"
@@ -229,7 +233,8 @@
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Naam machinist + datum:"
+                    android:textColor="@color/black"
+                    android:text="Naam machinist + datum"
                     android:textSize="12sp" />
 
                 <TextView

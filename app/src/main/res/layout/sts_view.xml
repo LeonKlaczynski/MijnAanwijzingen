@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/border_sts"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="0dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundGravity="center"
+            android:background="@drawable/border_stsn"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -58,8 +59,8 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treinnummer:"
+                                android:textColor="@color/black"
+                                android:text="Treinnummer"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -90,8 +91,8 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Treindienstleider:"
+                                android:textColor="@color/black"
+                                android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -125,7 +126,8 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Emplacement:"
+                    android:textColor="@color/black"
+                    android:text="Emplacement"
                     android:textSize="12sp" />
 
                 <TextView
@@ -152,7 +154,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Seinnummer:"
+                    android:textColor="@color/black"
+                    android:text="Seinnummer"
                     android:textSize="12sp" />
 
                 <TextView
@@ -172,8 +175,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="Achter het sein rijden op zicht, de wissels voorzichtig berijden met een snelheid van max. 10 km/h. Rekening houden met het niet goed functioneren van overwegen."
+                    android:gravity="start"
+                    android:text="• Achter het sein rijden op zicht.
+                     \n• De wissels voorzichtig berijden met een snelheid van max. 10 km/h.
+                     \n• Rekening houden met het niet goed functioneren van overwegen."
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -190,7 +195,8 @@
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Naam machinist + datum:"
+                    android:textColor="@color/black"
+                    android:text="Naam machinist + datum"
                     android:textSize="12sp" />
 
                 <TextView
