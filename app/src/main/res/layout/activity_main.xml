@@ -24,6 +24,18 @@
         app:icon="@drawable/ic_add"
         app:iconTint="@color/white"/>
 
+    <TextView
+        android:id="@+id/devView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1A000000"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:text="!!! ONTWIKKELAAR !!!"
+        app:layout_constraintBottom_toBottomOf="@+id/swipeRefreshLayout"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"

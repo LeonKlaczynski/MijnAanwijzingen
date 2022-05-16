@@ -96,6 +96,20 @@ public class InOutOperator {
         editor.apply();
     }
 
+    public void setDev(boolean state) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(Definitions.DEV_KEY, state);
+        editor.apply();
+    }
+
+    public boolean isDev() {
+        String key = Definitions.DEV_KEY;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        return prefs.getBoolean(Definitions.DEV_KEY, false);
+    }
+
+
     public String loadName(String key) {
         String name = "";
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);

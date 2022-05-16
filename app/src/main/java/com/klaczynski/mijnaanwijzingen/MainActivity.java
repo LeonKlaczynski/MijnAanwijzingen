@@ -1,18 +1,13 @@
 package com.klaczynski.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -30,6 +25,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -45,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Aanwijzing> aanwijzingen;
     private InOutOperator io;
     public static String driverName = "";
+    public static boolean isDev;
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -55,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         io.systemUses24HourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
         getSupportActionBar().setIcon(R.mipmap.ic_launcher_mijnaanwijzingen_icon_white_foreground);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        isDev = io.isDev();
+        TextView devView = findViewById(R.id.devView);
+        if(isDev) devView.setVisibility(View.VISIBLE);
 
         if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
             warningDialog(MainActivity.this);
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
         ListView lijst = findViewById(R.id.lijst);
         lijst.setAdapter(adapter);
-        lijst.setClickable(true);
 
         lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(driverName.equalsIgnoreCase("")) {
+                if (driverName.equalsIgnoreCase("")) {
                     nameDialog();
                     return;
                 }
@@ -189,9 +189,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
 
-        if (!Definitions.DEBUG)
-            menu.findItem(R.id.action_MockData).setVisible(false);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        if (Definitions.DEBUG || isDev)
+            menu.findItem(R.id.action_MockData).setVisible(true);
+        if(Definitions.DEBUG || isDev)
+            menu.findItem(R.id.action_revokeDev).setVisible(true);
         return true;
     }
 
@@ -229,6 +230,16 @@ public class MainActivity extends AppCompatActivity {
                 updateView();
                 io.saveList(aanwijzingen, Definitions.LIJST_KEY);
                 break;*/ //Prepping for backups
+            case R.id.action_about:
+                Intent i = new Intent(getBaseContext(), AboutActivity.class);
+                startActivity(i);
+                break;
+            case R.id.action_revokeDev:
+                isDev = false;
+                io.setDev(false);
+                Toast.makeText(MainActivity.this, "Je bent geen ontwikkelaar meer! Start de app opnieuw op..", Toast.LENGTH_LONG).show();
+                finishAffinity();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -420,7 +431,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void deletionDialog(int pos) {
         Dialog viewDialog = new Dialog(MainActivity.this);
-        viewDialog.setContentView(R.layout.deletion_dialog);
+        viewDialog.setContentView(R.layout.dialog_delete);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnYes = viewDialog.findViewById(R.id.buttonYes);
@@ -444,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void deleteAllDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
-        viewDialog.setContentView(R.layout.delete_all_dialog);
+        viewDialog.setContentView(R.layout.dialog_delete_all);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnYes = viewDialog.findViewById(R.id.buttonYes);

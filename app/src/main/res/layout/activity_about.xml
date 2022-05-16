@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".AboutActivity"
+    android:layout_margin="20sp">
+
+
+    <ImageView
+        android:id="@+id/iconView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@mipmap/ic_launcher_mijnaanwijzingen" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:text="Versie: X.X"
+        android:textSize="14sp"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+    <TextView
+        android:id="@+id/textView1h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_info_16"
+        android:drawablePadding="2dp"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:text="Over deze app"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="Een app die gemaakt is om het digitaal opslaan van ontvangen (spoorse) aanwijzingen to vergemakkelijken. Let op: ontwikkeld door collega met weinig tot geen professionele programmeer-ervaring.
+
+\n\nHet gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen."
+        android:textSize="14sp"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+
+    <TextView
+        android:id="@+id/textView2h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:drawableLeft="@drawable/ic_baseline_warning_16"
+        android:drawablePadding="2dp"
+        android:gravity="center_vertical"
+        android:text="Disclaimer"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="Deze app 'Mijn Aanwijzingen' is op geen enkele manier gelieerd aan of verwant met zowel de 'Nederlandse Spoorwegen N.V.' als 'ProRail B.V.'"
+        android:textSize="14sp"/>
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+
+    <TextView
+        android:id="@+id/textView3h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:drawableLeft="@drawable/ic_baseline_copyright_16"
+        android:drawablePadding="2dp"
+        android:gravity="center_vertical"
+        android:text="Copyright"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="TechnischeTreinChauffeur"
+        android:textSize="14sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/emailButton"
+        android:layout_marginTop="40dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="Email ontwikkelaar"
+        app:cornerRadius="20dp"/>
+</LinearLayout>

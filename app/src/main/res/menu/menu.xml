@@ -34,6 +34,18 @@
     <item
         android:id="@+id/action_MockData"
         android:orderInCategory="100"
-        android:title="Testdata"
+        android:title="!!! Testdata"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_revokeDev"
+        android:orderInCategory="100"
+        android:title="!!! Ontwikkelaarstatus terugzetten"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="Over deze app"
         app:showAsAction="never" />
 </menu>
