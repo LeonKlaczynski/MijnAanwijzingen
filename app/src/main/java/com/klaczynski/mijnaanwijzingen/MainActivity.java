@@ -13,6 +13,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Dialog dialog = new Dialog(view.getContext());
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.setContentView(R.layout.aanwijzingen_menu);
                 dialog.show();
 
@@ -231,25 +234,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void warningDialog(Activity a) {
-        AlertDialog alertDialog = new AlertDialog.Builder(a).create();
-        alertDialog.setTitle("Waarschuwing");
-        alertDialog.setMessage("Het gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan " +
-                "niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. " +
-                "De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Akkoord",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
-                            nameDialog();
-                    }
-                });
-        alertDialog.show();
+        Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.setContentView(R.layout.dialog_disclaimer);
+        viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        viewDialog.show();
+        Button btnCheck = viewDialog.findViewById(R.id.buttonCheck);
+
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewDialog.dismiss();
+                if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
+                    nameDialog();
+            }
+        });
     }
 
     private void nameDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.name_dialog);
+        viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnAdd = viewDialog.findViewById(R.id.buttonAdd);
         EditText naamVeld = viewDialog.findViewById(R.id.editTextTextMcnName);
@@ -417,6 +421,7 @@ public class MainActivity extends AppCompatActivity {
     private void deletionDialog(int pos) {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.deletion_dialog);
+        viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnYes = viewDialog.findViewById(R.id.buttonYes);
         Button btnNo = viewDialog.findViewById(R.id.buttonNo);
@@ -440,6 +445,7 @@ public class MainActivity extends AppCompatActivity {
     private void deleteAllDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.delete_all_dialog);
+        viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnYes = viewDialog.findViewById(R.id.buttonYes);
         Button btnNo = viewDialog.findViewById(R.id.buttonNo);

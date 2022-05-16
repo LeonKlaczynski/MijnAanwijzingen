@@ -2,14 +2,14 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="20dp"
-
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -21,7 +21,7 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:background="@color/primary"
-            android:text="Aanwijzing verwijderen"
+            android:text="Waarschuwing!"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -32,8 +32,8 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Weet je zeker dat je deze aanwijzing wilt verwijderen?"
-            android:textSize="16sp"
+            android:text="Het gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen."
+            android:textSize="14sp"
             android:textColor="@color/black"/>
 
         <LinearLayout
@@ -43,22 +43,12 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonYes"
-                android:layout_width="wrap_content"
+                android:id="@+id/buttonCheck"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:text="Ja"
-                app:cornerRadius="10dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_dark"
-                android:text="Nee"
+                android:text="Akkoord"
                 app:cornerRadius="10dp"/>
         </LinearLayout>
 

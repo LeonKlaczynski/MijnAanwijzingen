@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:padding="30dp">
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,57 +12,88 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/primary"
             android:gravity="center"
-            android:paddingBottom="5dp"
-            android:text="Kies type aanwijzing:"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Type aanwijzing"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonVR"
-            android:layout_width="200sp"
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/VR"
-            android:text="Aanwijzing vr" />
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Kies het type aanwijzing:"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
-        <Button
-            android:id="@+id/buttonOVW"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/OVW"
-            android:text="Aanwijzing OVW" />
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonSB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/SB"
-            android:text="Aanwijzing SB" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonVR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/VR"
+                android:text="Aanwijzing vr"
+                app:cornerRadius="10dp"/>
 
-        <Button
-            android:id="@+id/buttonSTS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/STS"
-            android:text="Aanwijzing STS" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonOVW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/OVW"
+                android:text="Aanwijzing OVW"
+                app:cornerRadius="10dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonSTSN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/STSN"
-            android:drawableTint="@color/STS"
-            app:strokeColor="@color/TTV"
-            app:strokeWidth="3dp"
-            android:text="Aanwijzing STS(N)" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/SB"
+                android:text="Aanwijzing SB"
+                app:cornerRadius="10dp"/>
 
-        <Button
-            android:id="@+id/buttonTTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/TTV"
-            android:text="Aanwijzing TTV" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSTS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/STS"
+                android:text="Aanwijzing STS"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSTSN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/STSN"
+                android:drawableTint="@color/STS"
+                android:text="Aanwijzing STS(N)"
+                app:strokeColor="@color/TTV"
+                app:strokeWidth="3dp"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonTTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/TTV"
+                android:text="Aanwijzing TTV"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

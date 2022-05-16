@@ -214,7 +214,8 @@
                 app:strokeColor="@color/TTV"
                 app:strokeWidth="5dp"
                 android:text="Bevestigen"
-                app:rippleColor="@color/TTV" />
+                app:rippleColor="@color/TTV"
+                app:cornerRadius="20dp"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

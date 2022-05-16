@@ -155,14 +155,15 @@
                     android:inputType="number|text" />
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonAcklowledge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:backgroundTint="@color/OVW"
                 android:text="Bevestigen"
-                app:rippleColor="@color/OVWlight" />
+                app:rippleColor="@color/OVWlight"
+                app:cornerRadius="20dp"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

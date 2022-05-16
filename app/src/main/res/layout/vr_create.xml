@@ -214,14 +214,15 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonAcklowledge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:backgroundTint="@color/VR"
                 android:text="Bevestigen"
-                app:rippleColor="@color/VRlight" />
+                app:rippleColor="@color/VRlight"
+                app:cornerRadius="20dp"/>
 
         </LinearLayout>
 

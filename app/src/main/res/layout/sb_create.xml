@@ -200,14 +200,15 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonAcklowledge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:backgroundTint="@color/SB"
                 android:text="Bevestigen"
-                app:rippleColor="@color/SBlight" />
+                app:rippleColor="@color/SBlight"
+                app:cornerRadius="20dp"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
