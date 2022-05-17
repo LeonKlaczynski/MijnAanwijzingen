@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -62,6 +63,54 @@
         android:checked="true"
         android:textSize="14sp"
         android:textColor="@android:color/tab_indicator_text"/>
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#16DC3131"
+        android:layout_marginBottom="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Naam machinist wijzigen" />
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-3dp"
+                android:maxLines="1"
+                android:layout_weight="1"
+                android:text="'Jan van der Steenbergen Ofzo'" />
+
+
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonChangeName"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            app:cornerRadius="15dp"
+            android:drawableLeft="@drawable/ic_baseline_edit_13"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:text="Wijzigen" />
+    </LinearLayout>
 
     <View
         android:id="@+id/divider"
@@ -145,8 +194,9 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/emailButton"
         android:layout_marginTop="40dp"
-        android:layout_width="280dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_mail_outline_14"
         android:text="Email ontwikkelaar"
         app:cornerRadius="20dp"/>
 </LinearLayout>

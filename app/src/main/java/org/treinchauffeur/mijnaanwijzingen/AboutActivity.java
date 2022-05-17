@@ -3,20 +3,27 @@ package org.treinchauffeur.mijnaanwijzingen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.klaczynski.mijnaanwijzingen.BuildConfig;
 import com.klaczynski.mijnaanwijzingen.R;
 
 import org.treinchauffeur.mijnaanwijzingen.io.InOutOperator;
+import org.treinchauffeur.mijnaanwijzingen.misc.Definitions;
 
 public class AboutActivity extends AppCompatActivity {
     int devCounter = 0;
@@ -49,6 +56,17 @@ public class AboutActivity extends AppCompatActivity {
                     MainActivity.showTextHints = false;
                     io.setShowHints(false);
                 }
+            }
+        });
+
+        //Name changing
+        TextView nameView = findViewById(R.id.textViewName);
+        nameView.setText("'"+MainActivity.driverName+"'");
+        MaterialButton nameButton = findViewById(R.id.buttonChangeName);
+        nameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameDialog();
             }
         });
 
@@ -100,5 +118,36 @@ public class AboutActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * Asks user to input name
+     */
+    private void nameDialog() {
+        Dialog viewDialog = new Dialog(AboutActivity.this);
+        viewDialog.setContentView(R.layout.dialog_name);
+        viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        viewDialog.show();
+        Button btnAdd = viewDialog.findViewById(R.id.buttonAdd);
+        EditText naamVeld = viewDialog.findViewById(R.id.editTextTextMcnName);
+        if (!MainActivity.driverName.equalsIgnoreCase(""))
+            naamVeld.setText(MainActivity.driverName);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (naamVeld.getText().toString().equalsIgnoreCase("")) {
+                    naamVeld.setError("Geen geldige invoer");
+                    return;
+                }
+                io.saveName(naamVeld.getText().toString(), Definitions.NAAM_KEY);
+                MainActivity.driverName = naamVeld.getText().toString();
+                Snackbar.make(findViewById(R.id.aboutLayout), "Opgeslagen naam: " + naamVeld.getText().toString(), Snackbar.LENGTH_SHORT).show();
+                TextView nameView = findViewById(R.id.textViewName);
+                nameView.setText("'"+MainActivity.driverName+"'");
+                viewDialog.dismiss();
+            }
+        });
     }
 }

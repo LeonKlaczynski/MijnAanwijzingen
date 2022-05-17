@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.klaczynski.mijnaanwijzingen.org.klaczynski.mijnaanwijzingen.MainActivity">
 
-    <item
-        android:id="@+id/action_name"
-        android:orderInCategory="100"
-        android:title="Naam wijzigen"
-        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_write_backup"
         android:visible="false"
@@ -46,6 +42,7 @@
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_settings_24_white"
         android:title="Over deze app"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>

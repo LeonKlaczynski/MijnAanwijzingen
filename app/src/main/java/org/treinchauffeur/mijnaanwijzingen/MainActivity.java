@@ -242,9 +242,6 @@ public class MainActivity extends AppCompatActivity {
                 updateView();
                 io.saveList(aanwijzingen, Definitions.LIJST_KEY);
                 break;
-            case R.id.action_name:
-                nameDialog();
-                break;
             /*case R.id.action_write_backup:
                 verifyStoragePermissions(this);
                 ActivityCompat.requestPermissions(
