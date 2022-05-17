@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen.obj;
+package org.treinchauffeur.mijnaanwijzingen.obj;
 
 import java.util.Date;
 

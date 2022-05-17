@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen;
+package org.treinchauffeur.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -13,9 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.switchmaterial.SwitchMaterial;
-import com.klaczynski.mijnaanwijzingen.io.InOutOperator;
+import com.klaczynski.mijnaanwijzingen.BuildConfig;
+import com.klaczynski.mijnaanwijzingen.R;
+
+import org.treinchauffeur.mijnaanwijzingen.io.InOutOperator;
 
 public class AboutActivity extends AppCompatActivity {
     int devCounter = 0;
@@ -33,7 +34,7 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Over deze app");
         TextView versieView = findViewById(R.id.textViewVersion);
-        versieView.setText("Versie " + BuildConfig.VERSION_NAME);
+        versieView.setText("Versie " + BuildConfig.VERSION_NAME + " (BETA)");
 
         //Settings
         SwitchCompat switchHints = findViewById(R.id.switchHint);

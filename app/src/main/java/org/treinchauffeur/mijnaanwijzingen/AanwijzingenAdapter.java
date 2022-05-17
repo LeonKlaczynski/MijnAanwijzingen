@@ -1,23 +1,17 @@
-package com.klaczynski.mijnaanwijzingen;
+package org.treinchauffeur.mijnaanwijzingen;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.google.android.material.card.MaterialCardView;
-import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
+import com.klaczynski.mijnaanwijzingen.R;
+
+import org.treinchauffeur.mijnaanwijzingen.obj.Aanwijzing;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

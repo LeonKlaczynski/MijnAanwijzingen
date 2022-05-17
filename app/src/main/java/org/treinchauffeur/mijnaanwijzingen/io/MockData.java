@@ -1,10 +1,4 @@
-package com.klaczynski.mijnaanwijzingen.io;
-
-import com.klaczynski.mijnaanwijzingen.MainActivity;
-import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
-
-import java.util.Calendar;
-import java.util.Date;
+package org.treinchauffeur.mijnaanwijzingen.io;
 
 @Deprecated
 public class MockData {

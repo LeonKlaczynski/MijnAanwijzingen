@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen;
+package org.treinchauffeur.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -13,7 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
+import com.klaczynski.mijnaanwijzingen.R;
+
+import org.treinchauffeur.mijnaanwijzingen.obj.Aanwijzing;
 
 import java.util.Calendar;
 

@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen.io;
+package org.treinchauffeur.mijnaanwijzingen.io;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.klaczynski.mijnaanwijzingen.MainActivity;
-import com.klaczynski.mijnaanwijzingen.misc.Definitions;
-import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
+import org.treinchauffeur.mijnaanwijzingen.MainActivity;
+import org.treinchauffeur.mijnaanwijzingen.misc.Definitions;
+import org.treinchauffeur.mijnaanwijzingen.obj.Aanwijzing;
 
 import java.io.File;
 import java.io.FileInputStream;

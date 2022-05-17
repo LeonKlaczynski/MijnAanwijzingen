@@ -10,18 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MijnAanwijzingen">
         <activity
-            android:name=".AboutActivity"
+            android:name="org.treinchauffeur.mijnaanwijzingen.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".CreationActivity"
+            android:name="org.treinchauffeur.mijnaanwijzingen.CreationActivity"
             android:exported="false" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.klaczynski.mijnaanwijzingen.MainActivity" />
+            android:value="org.treinchauffeur.mijnaanwijzingen.MainActivity" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="org.treinchauffeur.mijnaanwijzingen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

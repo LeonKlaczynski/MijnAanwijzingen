@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen.misc;
+package org.treinchauffeur.mijnaanwijzingen.misc;
 
 public class Definitions {
 

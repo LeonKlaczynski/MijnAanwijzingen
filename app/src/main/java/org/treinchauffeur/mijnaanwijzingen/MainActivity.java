@@ -1,4 +1,4 @@
-package com.klaczynski.mijnaanwijzingen;
+package org.treinchauffeur.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -27,9 +27,11 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.klaczynski.mijnaanwijzingen.io.InOutOperator;
-import com.klaczynski.mijnaanwijzingen.misc.Definitions;
-import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
+import com.klaczynski.mijnaanwijzingen.R;
+
+import org.treinchauffeur.mijnaanwijzingen.io.InOutOperator;
+import org.treinchauffeur.mijnaanwijzingen.misc.Definitions;
+import org.treinchauffeur.mijnaanwijzingen.obj.Aanwijzing;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
