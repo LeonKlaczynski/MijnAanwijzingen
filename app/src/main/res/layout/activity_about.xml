@@ -36,6 +36,34 @@
         android:textSize="14sp"/>
 
     <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+    <TextView
+        android:id="@+id/textView4h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_settings_16"
+        android:drawablePadding="2dp"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:text="Instellingen"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-12dp"
+        android:text="Suggestie teksten weergeven in formulier"
+        android:checked="true"
+        android:textSize="14sp"
+        android:textColor="@android:color/tab_indicator_text"/>
+
+    <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"

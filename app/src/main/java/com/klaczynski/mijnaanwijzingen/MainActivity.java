@@ -7,11 +7,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private InOutOperator io;
     public static String driverName = "";
     public static boolean isDev;
+    public static boolean showTextHints;
 
 
     /**
@@ -64,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         isDev = io.isDev();
         TextView devView = findViewById(R.id.devView);
         if(isDev) devView.setVisibility(View.VISIBLE);
+
+        //Determining whether to show text hints or not
+        showTextHints = io.showHints();
 
         //loading name, if not asking for one
         if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
@@ -295,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void nameDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
-        viewDialog.setContentView(R.layout.name_dialog);
+        viewDialog.setContentView(R.layout.dialog_name);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnAdd = viewDialog.findViewById(R.id.buttonAdd);

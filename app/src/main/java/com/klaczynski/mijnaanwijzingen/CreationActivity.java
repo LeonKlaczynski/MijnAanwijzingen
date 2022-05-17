@@ -1,11 +1,13 @@
 package com.klaczynski.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,8 +28,8 @@ public class CreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String actionbarString = "Nieuwe aanwijzing ";
-        Intent i = getIntent();
-        int TYPE = i.getIntExtra("TYPE", R.layout.vr_create);
+        Intent intent = getIntent();
+        int TYPE = intent.getIntExtra("TYPE", R.layout.vr_create);
         setContentView(TYPE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -60,6 +62,12 @@ public class CreationActivity extends AppCompatActivity {
         }
             Aanwijzing nieuweAanwijzing = new Aanwijzing(aanwijzingType, "", null, "", -1, "", "", "", "", "", "", "");
             getSupportActionBar().setTitle(actionbarString);
+
+            //Hides all hints depending on user settings
+            ConstraintLayout layout = findViewById(R.id.creationLayout);
+            if(!MainActivity.showTextHints) {
+                hideHints(layout);
+            }
 
             Button acknowledgeButton = findViewById(R.id.buttonAcklowledge);
             acknowledgeButton.setOnClickListener(new View.OnClickListener() {
@@ -227,6 +235,25 @@ public class CreationActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
+    }
+
+    /**
+     * Loops through layout to find edittexts, in order to disable hints. This took me a while..
+     * @param parent ViewGroup parent to loop through children
+     */
+    public void hideHints(ViewGroup parent) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            final View child = parent.getChildAt(i);
+            if (child instanceof ViewGroup) {
+                hideHints((ViewGroup) child);
+            } else {
+                if (child != null) {
+                    if(child instanceof EditText) {
+                        ((EditText) child).setHint("");
+                    }
+                }
+            }
         }
     }
 

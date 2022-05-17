@@ -9,6 +9,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="switchOnThumb">@color/primary</color>
+    <color name="switchOnTrack">#E67171</color>
+    <color name="switchOffThumb">#B1B1B1</color>
+    <color name="switchOffTrack">#D6D6D6</color>
+
     <color name="VR">#d9ce25</color>
     <color name="VRlight">#FFFEF6</color>
     <color name="OVW">#e26a29</color>

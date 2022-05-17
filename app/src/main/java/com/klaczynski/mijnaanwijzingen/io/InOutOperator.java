@@ -136,6 +136,26 @@ public class InOutOperator {
     }
 
     /**
+     * Saves hint visibility state to SharedPreferences
+     * @param state hint state
+     */
+    public void setShowHints(boolean state) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(Definitions.SHOW_HINTS_KEY, state);
+        editor.apply();
+    }
+
+    /**
+     * Loads hint visibility state from SharedPreferences
+     * @return hint state
+     */
+    public boolean showHints() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        return prefs.getBoolean(Definitions.SHOW_HINTS_KEY, true);
+    }
+
+    /**
      * Saves developer mode state to SharedPreferences
      * @param state dev state
      */
