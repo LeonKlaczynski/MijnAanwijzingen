@@ -32,7 +32,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Iedere nieuwe aanwijzing wordt automatisch ondertekend met zowel de naam van de machinist als de huidige datum en tijd. Geef hieronder je naam op:"
+            android:text="Iedere nieuwe aanwijzing wordt automatisch ondertekend met zowel de naam van de machinist als de huidige datum en tijd. Geef hieronder je naam op."
             android:textColor="@color/black"
             android:textSize="16sp" />
 

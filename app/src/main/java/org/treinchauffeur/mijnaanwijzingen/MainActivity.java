@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Dialog dialog = new Dialog(view.getContext());
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.setContentView(R.layout.aanwijzingen_menu);
+                dialog.setContentView(R.layout.dialog_aanwijzingen);
                 dialog.show();
 
                 Button buttonVR = dialog.findViewById(R.id.buttonVR);
