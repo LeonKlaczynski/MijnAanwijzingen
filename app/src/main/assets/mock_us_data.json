@@ -28,7 +28,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Hgl",
     "miscInfo": "",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Hgl",
     "treinNr": 1234,
     "type": 0
@@ -45,7 +45,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Aml-Hgl 2.3",
     "miscInfo": "Nathalie staat dr weer",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Aml",
     "treinNr": 4567,
     "type": 3
@@ -62,7 +62,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Aml-Hgl",
     "miscInfo": "",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Aml",
     "treinNr": 1312,
     "type": 4
@@ -79,7 +79,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Dv-Rsn 75.5",
     "miscInfo": "Toestand spoor",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Dv",
     "treinNr": 8675,
     "type": 5
@@ -96,7 +96,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Rhn",
     "miscInfo": "Aanwijzing aannemen vóór vertrek",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Db",
     "treinNr": 8763,
     "type": 2
@@ -113,7 +113,7 @@
     "datum": "May 5, 2022 8:55:46 PM",
     "locatie": "Gd",
     "miscInfo": "",
-    "naamMcn": "Leon",
+    "naamMcn": "",
     "trdl": "Wd",
     "treinNr": 8724,
     "type": 1
