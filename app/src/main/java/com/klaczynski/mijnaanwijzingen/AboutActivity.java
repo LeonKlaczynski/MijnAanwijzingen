@@ -18,6 +18,10 @@ public class AboutActivity extends AppCompatActivity {
     int devCounter = 0;
     InOutOperator io;
 
+    /**
+     * Shows information about the app, including disclaimers + copyright information
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,25 +32,26 @@ public class AboutActivity extends AppCompatActivity {
         TextView versieView = findViewById(R.id.textViewVersion);
         versieView.setText("Versie " + BuildConfig.VERSION_NAME);
 
+        //Email stuff
         MaterialButton mb = findViewById(R.id.emailButton);
-
         mb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
                 emailIntent.setType("text/plain");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"technischetreinchauffeur@gmail.com"});
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"mijnaanwijzingen.dev@gmail.com"});
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Over: Mijn Aanwijzingen");
                 emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Mijn Aanwijzingen v" + BuildConfig.VERSION_NAME);
                 startActivity(Intent.createChooser(emailIntent, "E-mail versturen..."));
             }
         });
 
+        //Dev mode stuff
         ImageView iconView = findViewById(R.id.iconView);
         iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!MainActivity.isDev) {
+                if (!MainActivity.isDev) {
                     devCounter++;
                     if (devCounter == 10) {
                         Toast.makeText(AboutActivity.this, "Je bent nu een ontwikkelaar! Start de app opnieuw op..", Toast.LENGTH_LONG).show();
@@ -61,6 +66,11 @@ public class AboutActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Makes return button function
+     * @param item menu item
+     * @return idk
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

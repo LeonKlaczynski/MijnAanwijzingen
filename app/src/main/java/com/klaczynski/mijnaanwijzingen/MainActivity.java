@@ -37,12 +37,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    //Logcat TAG
     private static final String TAG = "MainActivity";
+
     public static ArrayList<Aanwijzing> aanwijzingen;
     private InOutOperator io;
     public static String driverName = "";
     public static boolean isDev;
 
+
+    /**
+     * Draws interface (see individual annotations)
+     * @param savedInstanceState
+     */
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +60,18 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher_mijnaanwijzingen_icon_white_foreground);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //Determining whether dev or not
         isDev = io.isDev();
         TextView devView = findViewById(R.id.devView);
         if(isDev) devView.setVisibility(View.VISIBLE);
 
+        //loading name, if not asking for one
         if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
             warningDialog(MainActivity.this);
         else
             driverName = io.loadName(Definitions.NAAM_KEY);
 
+        //Defining list of aanwijzingen, if none existant -> create new
         try {
             aanwijzingen = io.loadList(Definitions.LIJST_KEY);
         } catch (Exception e) {
@@ -69,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
             aanwijzingen = new ArrayList<Aanwijzing>();
         }
 
+        //Defining list + add items + add click listeners
         AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
         ListView lijst = findViewById(R.id.lijst);
         lijst.setAdapter(adapter);
-
         lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
@@ -80,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 showDialog(a);
             }
         });
-
         lijst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
@@ -91,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Fab that launches dialog to create new Aanwijzing (pick a type)
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        //Enabling pull down to refresh
         final SwipeRefreshLayout pullToRefresh = findViewById(R.id.swipeRefreshLayout);
         pullToRefresh.setColorSchemeResources(R.color.primary); //can't be done in XML apparently
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -178,6 +190,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Refresh data when activity resumes
+     */
     @Override
     protected void onResume() {
         updateView();
@@ -185,6 +200,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    /**
+     * Hides certain meny entries when not dev
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -196,6 +216,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Sets menu item actions
+     * @param item
+     * @return
+     */
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -244,6 +269,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * warning dialog with operational disclaimer
+     * @param a
+     */
     public void warningDialog(Activity a) {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.dialog_disclaimer);
@@ -261,6 +290,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Asks user to input name
+     */
     private void nameDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.name_dialog);
@@ -287,6 +319,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Shows Aanwijzing data when list item Onclick is called
+     * @param a
+     */
     private void showDialog(Aanwijzing a) {
         Dialog viewDialog = new Dialog(MainActivity.this);
         switch (a.getType()) {
@@ -429,6 +465,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Verifies whether user wants to erase list entry
+     * @param pos
+     */
     private void deletionDialog(int pos) {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.dialog_delete);
@@ -453,6 +493,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Verifies whether user wants to delete all entries
+     */
     private void deleteAllDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.dialog_delete_all);
@@ -478,7 +521,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * Updates the list
+     */
     public void updateView() {
         ListView lijst = findViewById(R.id.lijst);
         ArrayList<Aanwijzing> aTemp = new ArrayList<>();
@@ -488,6 +533,9 @@ public class MainActivity extends AppCompatActivity {
         ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
     }
 
+    /**
+     * Makes sure to save list when app is stopped gracefully
+     */
     @Override
     protected void onStop() {
         io.saveList(aanwijzingen, Definitions.LIJST_KEY);

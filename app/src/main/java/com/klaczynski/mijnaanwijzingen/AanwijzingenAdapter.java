@@ -25,10 +25,22 @@ import java.util.ArrayList;
 public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
     private static final String TAG = "AanwijzingenAdapter";
 
+    /**
+     * Custom list adapter to display all saved instructions
+     * @param context
+     * @param aanwijzingen list of all instructions
+     */
     public AanwijzingenAdapter(Context context, ArrayList<Aanwijzing> aanwijzingen) {
         super(context, 0, aanwijzingen);
     }
 
+    /**
+     * Creates view, sets lines to data of instruction
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         Aanwijzing a = getItem(position);
         if (convertView == null) {
@@ -41,15 +53,6 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         TextView icon = convertView.findViewById(R.id.typeView);
         LinearLayout layout = (LinearLayout) convertView.findViewById(R.id.item_layout_bg);
         MaterialCardView cardView = convertView.findViewById(R.id.lijstCardView);
-
-
-        /*layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(a);
-                Log.d(TAG, "onClick: clicked item: "+position);
-            }
-        });*/
 
         //Setting general information regardless of type
         locationView.setText(a.getLocatie());

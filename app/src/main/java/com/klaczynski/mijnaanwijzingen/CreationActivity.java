@@ -1,7 +1,6 @@
 package com.klaczynski.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +16,12 @@ import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
 import java.util.Calendar;
 
 public class CreationActivity extends AppCompatActivity {
-    int type = 0;
+    int aanwijzingType = 0;
 
+    /**
+     * Ultimately adds new instruction. User input fields dependant of type (passed through Intent).
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,39 +31,37 @@ public class CreationActivity extends AppCompatActivity {
         setContentView(TYPE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         if(TYPE != 0) {
         switch(TYPE) {
             case R.layout.vr_create:
-                type = Aanwijzing.TYPE_VR;
+                aanwijzingType = Aanwijzing.TYPE_VR;
                 actionbarString += "VR";
                 break;
             case R.layout.ovw_create:
-                type = Aanwijzing.TYPE_OVW;
+                aanwijzingType = Aanwijzing.TYPE_OVW;
                 actionbarString += "OVW";
                 break;
             case R.layout.sts_create:
-                type = Aanwijzing.TYPE_STS;
+                aanwijzingType = Aanwijzing.TYPE_STS;
                 actionbarString += "STS";
                 break;
             case R.layout.stsn_create:
-                type = Aanwijzing.TYPE_STSN;
+                aanwijzingType = Aanwijzing.TYPE_STSN;
                 actionbarString += "STS Normale Snelheid";
                 break;
             case R.layout.sb_create:
-                type = Aanwijzing.TYPE_SB;
+                aanwijzingType = Aanwijzing.TYPE_SB;
                 actionbarString += "SB";
                 break;
             case R.layout.ttv_create:
-                type = Aanwijzing.TYPE_TTV;
+                aanwijzingType = Aanwijzing.TYPE_TTV;
                 actionbarString += "TTV";
                 break;
         }
-            Aanwijzing nieuweAanwijzing = new Aanwijzing(type, "", null, "", -1, "", "", "", "", "", "", "");
+            Aanwijzing nieuweAanwijzing = new Aanwijzing(aanwijzingType, "", null, "", -1, "", "", "", "", "", "", "");
             getSupportActionBar().setTitle(actionbarString);
 
             Button acknowledgeButton = findViewById(R.id.buttonAcklowledge);
-
             acknowledgeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -71,8 +72,8 @@ public class CreationActivity extends AppCompatActivity {
                         etTrNr.setError("Geen invoer");
                     if(etLocatie.getText().toString().equalsIgnoreCase(""))
                         etLocatie.setError("Geen invoer");
-                    if(type != -1) {
-                        switch(type) {
+                    if(aanwijzingType != -1) {
+                        switch(aanwijzingType) {
                             case Aanwijzing.TYPE_VR:
                                 EditText etSnelheid = findViewById(R.id.editTextSpeed);
                                 EditText etReden = findViewById(R.id.editTextReason);
@@ -229,6 +230,11 @@ public class CreationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Makes return button work
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

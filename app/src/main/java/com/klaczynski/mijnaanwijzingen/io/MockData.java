@@ -6,7 +6,11 @@ import com.klaczynski.mijnaanwijzingen.obj.Aanwijzing;
 import java.util.Calendar;
 import java.util.Date;
 
+@Deprecated
 public class MockData {
+    /**
+     * Deprecated class for adding mock data for testing, using JSON now
+     */
 
     /* Aanwijzingen data
 

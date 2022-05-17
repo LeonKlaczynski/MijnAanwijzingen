@@ -111,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
-        android:text="TechnischeTreinChauffeur"
+        android:text="Een machinist :)"
         android:textSize="14sp"/>
 
     <com.google.android.material.button.MaterialButton

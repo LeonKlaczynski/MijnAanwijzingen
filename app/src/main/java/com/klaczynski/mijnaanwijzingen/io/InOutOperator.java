@@ -29,10 +29,19 @@ public class InOutOperator {
     Activity activity;
     public boolean systemUses24HourFormat = true;
 
+    /**
+     * InOutOperator handles all local i/o activity
+     * @param activity
+     */
     public InOutOperator(Activity activity) {
         this.activity = activity;
     }
 
+    /**
+     * saves instructions list to json to SharedPreferences
+     * @param aanwijzingen list to save
+     * @param key sp key
+     */
     public void saveList(ArrayList<Aanwijzing> aanwijzingen, String key) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         SharedPreferences.Editor editor = prefs.edit();
@@ -43,6 +52,11 @@ public class InOutOperator {
         editor.apply();
     }
 
+    /**
+     * Loads list of instruction from json in SharedPreferences
+     * @param key sp key
+     * @return list of instructions
+     */
     public ArrayList<Aanwijzing> loadList(String key) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         Gson gson = new Gson();
@@ -57,6 +71,10 @@ public class InOutOperator {
         return gson.fromJson(json, type);
     }
 
+    /**
+     * loads list of mockdata (mockdata.json in assets folder)
+     * @return list of instructions
+     */
     public ArrayList<Aanwijzing> loadMockJson() {
         Gson gson = new Gson();
         String json = loadJSONFromAsset();
@@ -70,6 +88,10 @@ public class InOutOperator {
         return gson.fromJson(json, type);
     }
 
+    /**
+     * Loads json string from file (mockdata.json). Determines whether system time is 12h or 24h, because Americans
+     * @return json
+     */
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -89,6 +111,11 @@ public class InOutOperator {
         return json;
     }
 
+    /**
+     * Saves name to SharedPreferences
+     * @param name user's name to save
+     * @param key SharedPreferences key
+     */
     public void saveName(String name, String key) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         SharedPreferences.Editor editor = prefs.edit();
@@ -96,20 +123,11 @@ public class InOutOperator {
         editor.apply();
     }
 
-    public void setDev(boolean state) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(Definitions.DEV_KEY, state);
-        editor.apply();
-    }
-
-    public boolean isDev() {
-        String key = Definitions.DEV_KEY;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-        return prefs.getBoolean(Definitions.DEV_KEY, false);
-    }
-
-
+    /**
+     * Loads name from SharedPreferences
+     * @param key SharedPreferences key
+     * @return User's name
+     */
     public String loadName(String key) {
         String name = "";
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
@@ -117,6 +135,32 @@ public class InOutOperator {
         return name;
     }
 
+    /**
+     * Saves developer mode state to SharedPreferences
+     * @param state dev state
+     */
+    public void setDev(boolean state) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(Definitions.DEV_KEY, state);
+        editor.apply();
+    }
+
+    /**
+     * Loads developer mode state from SharedPreferences
+     * @return dev state
+     */
+    public boolean isDev() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        return prefs.getBoolean(Definitions.DEV_KEY, false);
+    }
+
+    /**
+     * Unused method to read backup list in json from external storage (backup preparations)
+     * @param context app context
+     * @return list of instructions
+     */
+    @Deprecated
     public ArrayList<Aanwijzing> readJsonFromStorage(Context context) {
         File file = new File(commonDocumentDirPath("Mijn Aanwijzingen") + "/" + Definitions.BACKUP_FILE_NAME);
         byte[] content = new byte[(int) file.length()];
@@ -139,6 +183,11 @@ public class InOutOperator {
         return gson.fromJson(json, type);
     }
 
+    /**
+     * Unused method to save backup list in json to external storage (backup preparations)
+     * @param context app context
+     * @param aanwijzingen list to save
+     */
     public void writeJsonToStorage(Context context, ArrayList<Aanwijzing> aanwijzingen){
         File dir = commonDocumentDirPath("Mijn Aanwijzingen");
         Gson gson = new Gson();

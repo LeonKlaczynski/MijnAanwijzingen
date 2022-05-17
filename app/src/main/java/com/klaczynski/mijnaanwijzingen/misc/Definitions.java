@@ -2,6 +2,9 @@ package com.klaczynski.mijnaanwijzingen.misc;
 
 public class Definitions {
 
+    /**
+     * Static constants used throughout the app. Mostly keys.
+     */
     public static final boolean DEBUG = false;
     public static final String LIJST_KEY = "AanwijzingenLijst";
     public static final String NAAM_KEY = "AanwijzingenNaamMcn";
