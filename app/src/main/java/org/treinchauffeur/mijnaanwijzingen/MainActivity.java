@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                 deleteAllDialog();
                 break;
             case R.id.action_MockData:
-                aanwijzingen = io.loadMockJson();
+                aanwijzingen.addAll(io.loadMockJson());
                 updateView();
                 io.saveList(aanwijzingen, Definitions.LIJST_KEY);
                 break;
