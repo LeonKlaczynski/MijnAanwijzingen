@@ -1,6 +1,7 @@
 package org.treinchauffeur.mijnaanwijzingen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,11 +71,21 @@ public class MainActivity extends AppCompatActivity {
         //Determining whether to show text hints or not
         showTextHints = io.showHints();
 
-        //loading name, if not asking for one
+        //First startup stuff
+        ConstraintLayout tutorialNotification = findViewById(R.id.tutorialNotification);
+        ImageButton closeButton = tutorialNotification.findViewById(R.id.btnCloseNotification);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tutorialNotification.setVisibility(View.GONE);
+            }
+        });
         if (io.loadName(Definitions.NAAM_KEY) == null || io.loadName(Definitions.NAAM_KEY).equals(""))
             warningDialog(MainActivity.this);
-        else
+        else {
             driverName = io.loadName(Definitions.NAAM_KEY);
+            tutorialNotification.setVisibility(View.GONE);
+        }
 
         //Defining list of aanwijzingen, if none existant -> create new
         try {
