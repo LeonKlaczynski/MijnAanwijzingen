@@ -45,7 +45,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         TextView mainInfoView = convertView.findViewById(R.id.textViewMainInfo);
         TextView dateView = convertView.findViewById(R.id.textViewDate);
         TextView icon = convertView.findViewById(R.id.typeView);
-        LinearLayout layout = (LinearLayout) convertView.findViewById(R.id.item_layout_bg);
+        LinearLayout layout = convertView.findViewById(R.id.item_layout_bg);
         MaterialCardView cardView = convertView.findViewById(R.id.lijstCardView);
 
         //Setting general information regardless of type

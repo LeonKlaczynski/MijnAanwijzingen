@@ -514,14 +514,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void removeListItem(View rowView, final int positon) {
+    protected void removeListItem(View rowView, final int position) {
         final Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_out_right_full);
         rowView.startAnimation(animation);
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                aanwijzingen.remove(positon);
+                aanwijzingen.remove(position);
                 updateView(true);
                 animation.cancel();
             }
