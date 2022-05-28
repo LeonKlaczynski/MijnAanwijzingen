@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         TextView devView = findViewById(R.id.devView);
         if(isDev) devView.setVisibility(View.VISIBLE);
 
-        //Determining whether to show text hints or not
+        //Determining whether to show editText hints or not
         showTextHints = io.showHints();
 
         //First startup stuff
