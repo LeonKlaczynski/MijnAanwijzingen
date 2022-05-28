@@ -44,4 +44,10 @@
         android:icon="@drawable/ic_baseline_settings_24_white"
         android:title="Over deze app"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_tutorialNotification"
+        android:orderInCategory="100"
+        android:title="!!! Melding weergeven"
+        app:showAsAction="never"
+        android:visible="false"/>
 </menu>

@@ -11,12 +11,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -108,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
         });
         lijst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+            public boolean onItemLongClick(AdapterView<?> arg0, View view,
                                            int pos, long id) {
-                deletionDialog(pos);
+                deletionDialog(pos, view);
 
                 return true;
             }
@@ -229,6 +232,8 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.action_MockData).setVisible(true);
         if(Definitions.DEBUG || isDev)
             menu.findItem(R.id.action_revokeDev).setVisible(true);
+        if(Definitions.DEBUG || isDev)
+            menu.findItem(R.id.action_tutorialNotification).setVisible(true);
         return true;
     }
 
@@ -277,6 +282,10 @@ public class MainActivity extends AppCompatActivity {
                 io.setDev(false);
                 Toast.makeText(MainActivity.this, "Je bent geen ontwikkelaar meer! Start de app opnieuw op..", Toast.LENGTH_LONG).show();
                 finishAffinity();
+                break;
+            case R.id.action_tutorialNotification:
+                ConstraintLayout tutorialNotification = findViewById(R.id.tutorialNotification);
+                tutorialNotification.setVisibility(View.VISIBLE);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -482,7 +491,7 @@ public class MainActivity extends AppCompatActivity {
      * Verifies whether user wants to erase list entry
      * @param pos
      */
-    private void deletionDialog(int pos) {
+    private void deletionDialog(int pos, View v) {
         Dialog viewDialog = new Dialog(MainActivity.this);
         viewDialog.setContentView(R.layout.dialog_delete);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -493,8 +502,7 @@ public class MainActivity extends AppCompatActivity {
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aanwijzingen.remove(pos);
-                updateView();
+                removeListItem(v, pos);
                 viewDialog.dismiss();
             }
         });
@@ -504,6 +512,20 @@ public class MainActivity extends AppCompatActivity {
                 viewDialog.dismiss();
             }
         });
+    }
+
+    protected void removeListItem(View rowView, final int positon) {
+        final Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_out_right_full);
+        rowView.startAnimation(animation);
+        Handler handle = new Handler();
+        handle.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                aanwijzingen.remove(positon);
+                updateView(true);
+                animation.cancel();
+            }
+        },200);
     }
 
     /**
@@ -544,6 +566,15 @@ public class MainActivity extends AppCompatActivity {
         ((ArrayAdapter) lijst.getAdapter()).clear();
         ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
         ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
+    }
+    public void updateView(boolean save) {
+        ListView lijst = findViewById(R.id.lijst);
+        ArrayList<Aanwijzing> aTemp = new ArrayList<>();
+        aTemp.addAll(aanwijzingen);
+        ((ArrayAdapter) lijst.getAdapter()).clear();
+        ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
+        ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
+        if(save) io.saveList(aanwijzingen, Definitions.LIJST_KEY);
     }
 
     /**
