@@ -2,8 +2,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="20dp"
-
+    app:cardCornerRadius="30dp"
+    app:strokeWidth="0dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -16,14 +16,12 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="25dp"
             android:paddingBottom="10dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@color/primary"
-            android:text="Aanwijzing verwijderen"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginHorizontal="20dp"
+            android:text="Waarschuwing"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -31,10 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:gravity="center"
+            android:gravity="start"
             android:text="Weet je zeker dat je deze aanwijzing wilt verwijderen?"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textSize="14sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +46,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="Ja"
+                android:textColor="?attr/colorPrimary"
+                android:background="@android:color/transparent"
                 app:cornerRadius="10dp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -57,8 +56,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_green_dark"
                 android:text="Nee"
+                android:textColor="?attr/colorPrimary"
+                android:background="@android:color/transparent"
                 app:cornerRadius="10dp"/>
         </LinearLayout>
 

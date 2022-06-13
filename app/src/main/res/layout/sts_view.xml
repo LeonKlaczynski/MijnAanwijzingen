@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="?attr/colorOnSurfaceVariant"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -51,7 +53,7 @@
                             android:layout_height="76dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
+                            android:background="?attr/colorSurfaceVariant"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -59,8 +61,8 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
                                 android:text="Treinnummer"
+                                android:textColor="?attr/colorOnBackground"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -72,7 +74,7 @@
                                 android:hint="bv. 1234"
                                 android:inputType="textPersonName"
                                 android:paddingTop="5sp"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -83,7 +85,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
+                            android:background="?attr/colorSurfaceVariant"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -91,7 +93,7 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
@@ -104,7 +106,7 @@
                                 android:hint="bv. Ut"
                                 android:inputType="textPersonName"
                                 android:paddingTop="5sp"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -119,14 +121,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Emplacement"
                     android:textSize="12sp" />
 
@@ -139,7 +141,7 @@
                     android:hint="Bijv. Wgm"
                     android:inputType="textPersonName"
                     android:paddingTop="5sp"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -147,14 +149,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Seinnummer"
                     android:textSize="12sp" />
 
@@ -167,7 +169,7 @@
                     android:hint="Bijv. 860"
                     android:inputType="textPersonName"
                     android:paddingTop="5sp"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:textStyle="bold" />
 
                 <TextView
@@ -179,7 +181,7 @@
                     android:text="• Achter het sein rijden op zicht.
                      \n• De wissels voorzichtig berijden met een snelheid van max. 10 km/h.
                      \n• Rekening houden met het niet goed functioneren van overwegen."
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -188,15 +190,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
                     android:text="Naam machinist + datum"
+                    android:textColor="?attr/colorOnBackground"
                     android:textSize="12sp" />
 
                 <TextView
@@ -208,7 +210,7 @@
                     android:hint="FOUT: Geen naam bekend!"
                     android:inputType="textPersonName"
                     android:paddingTop="5sp"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:textStyle="bold" />
 
                 <TextView
@@ -220,7 +222,7 @@
                     android:hint="Bijv. 2022-05-05 20:55:45"
                     android:inputType="textPersonName"
                     android:paddingTop="5sp"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

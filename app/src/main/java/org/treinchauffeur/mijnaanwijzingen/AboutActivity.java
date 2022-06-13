@@ -18,7 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.klaczynski.mijnaanwijzingen.BuildConfig;
 import com.klaczynski.mijnaanwijzingen.R;
 
@@ -38,13 +40,12 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         io = new InOutOperator(AboutActivity.this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Over deze app");
+
         TextView versieView = findViewById(R.id.textViewVersion);
         versieView.setText("Versie " + BuildConfig.VERSION_NAME + " (BETA)");
 
         //Settings
-        SwitchCompat switchHints = findViewById(R.id.switchHint);
+        MaterialCheckBox switchHints = findViewById(R.id.switchHint);
         switchHints.setChecked(MainActivity.showTextHints);
         switchHints.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -125,11 +126,13 @@ public class AboutActivity extends AppCompatActivity {
      */
     private void nameDialog() {
         Dialog viewDialog = new Dialog(AboutActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         viewDialog.setContentView(R.layout.dialog_name);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnAdd = viewDialog.findViewById(R.id.buttonAdd);
-        EditText naamVeld = viewDialog.findViewById(R.id.editTextTextMcnName);
+        TextInputLayout editLayout = viewDialog.findViewById(R.id.editTextTextMcnName);
+        EditText naamVeld = editLayout.getEditText();
         if (!MainActivity.driverName.equalsIgnoreCase(""))
             naamVeld.setText(MainActivity.driverName);
 

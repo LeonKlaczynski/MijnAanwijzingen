@@ -198,4 +198,29 @@ public class Aanwijzing {
     public void setSBLAE(boolean SBLAE) {
         this.SBLAE = SBLAE;
     }
+
+    public String getLongType() {
+        String s = "";
+        switch (type) {
+            case TYPE_VR:
+                s = "Voorzichtig Rijden";
+                break;
+            case TYPE_OVW:
+                s = "Overweg";
+                break;
+            case TYPE_SB:
+                s = "Snelheid Begrenzen";
+                break;
+            case TYPE_STS:
+                s = "Stoptonend Sein";
+                break;
+            case TYPE_STSN:
+                s = "Stoptonend Sein (Normale Snelheid)";
+                break;
+            case TYPE_TTV:
+                s = "Telefonisch Toestemming Vragen";
+                break;
+        }
+        return s;
+    }
 }

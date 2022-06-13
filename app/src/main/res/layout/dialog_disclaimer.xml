@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="30dp"
+    app:strokeWidth="0dp"
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="25dp"
             android:paddingBottom="10dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@color/primary"
-            android:text="Waarschuwing!"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginHorizontal="20dp"
+            android:text="Waarschuwing"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -31,24 +32,25 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:gravity="center"
             android:text="Het gebruik van deze app is op eigen risico. De ontwikkelaar van deze app kan niet verantwoordelijk worden gehouden voor gebruik van deze app, evenals eventuele gevolgen hiervan. De machinist is ten alle tijden zelf verantwoordelijk voor het juist aannemen, opvolgen en bewaren van aanwijzingen."
-            android:textSize="14sp"
-            android:textColor="@color/black"/>
+            android:textSize="14sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="end"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonCheck"
-                android:layout_width="200sp"
+                android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/primary"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="#00000000"
                 android:text="Akkoord"
+                app:rippleColor="?attr/colorPrimary"
+                android:textColor="?attr/colorPrimary"
                 app:cornerRadius="10dp"/>
         </LinearLayout>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@color/VRlight"
+    android:background="?attr/colorOnSurfaceVariant"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="0dp">
 
@@ -50,7 +50,7 @@
                         android:layout_height="76dp"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="#F6F6F6"
+                        android:background="?attr/colorSurfaceVariant"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
@@ -59,7 +59,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Treinnummer"
-                            android:textColor="@color/black"
+                            android:textColor="?attr/colorOnBackground"
                             android:textSize="12sp" />
 
                         <TextView
@@ -71,7 +71,7 @@
                             android:hint="bv. 1234"
                             android:inputType="textPersonName"
                             android:paddingTop="5sp"
-                            android:textColor="@color/black"
+                            android:textColor="?attr/colorOnBackground"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
 
@@ -83,15 +83,14 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="#F6F6F6"
-                        android:gravity="center_horizontal"
+                        android:background="?attr/colorSurfaceVariant"                        android:gravity="center_horizontal"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewtrdl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
+                            android:textColor="?attr/colorOnBackground"
                             android:text="Treindienstleider"
                             android:textSize="12sp" />
 
@@ -100,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
-                            android:textColor="@color/black"
+                            android:textColor="?attr/colorOnBackground"
                             android:paddingTop="5sp"
                             android:gravity="center"
                             android:ems="10"
@@ -115,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:background="#F6F6F6"
+                    android:background="?attr/colorSurfaceVariant"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -124,7 +123,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnBackground"
                         android:text="Maximale snelheid"
                         android:textSize="12sp" />
 
@@ -134,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnBackground"
                         android:gravity="center"
                         android:ems="10"
                         android:hint="max. 40"
@@ -149,14 +148,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#F6F6F6"
+            android:background="?attr/colorSurfaceVariant"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:text="Plaatsbepaling"
                 android:textSize="12sp" />
 
@@ -166,7 +165,7 @@
                 android:layout_height="30sp"
                 android:ems="10"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:paddingTop="5sp"
                 android:gravity="center"
                 android:hint="Bijv. Asd - Wgm 24.6"
@@ -177,14 +176,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#F6F6F6"
+            android:background="?attr/colorSurfaceVariant"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:text="Reden"
                 android:textSize="12sp" />
 
@@ -194,7 +193,7 @@
                 android:layout_height="30sp"
                 android:ems="10"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:paddingTop="5sp"
                 android:gravity="center"
                 android:hint="Bijv. Persoon op het spoor."
@@ -214,7 +213,7 @@
                     android:buttonTint="@color/VR"
                     android:enabled="false"
                     android:text="Hulpverleners"
-                    android:textColor="@android:color/secondary_text_light"
+                    android:textColor="?attr/colorOnBackground"
                     android:textColorHighlight="@color/VR"
                     android:textColorLink="@color/VR" />
 
@@ -227,7 +226,7 @@
                     android:buttonTint="@color/VR"
                     android:enabled="false"
                     android:text="Schouwopdracht"
-                    android:textColor="@android:color/secondary_text_light"
+                    android:textColor="?attr/colorOnBackground"
                     android:textColorHighlight="@color/VR"
                     android:textColorLink="@color/VR" />
             </LinearLayout>
@@ -238,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="• De machinist brengt de trein tot stilstand, indien de veiligheid dit vordert.\n"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -247,14 +246,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:background="#F6F6F6"
+            android:background="?attr/colorSurfaceVariant"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:text="Naam machinist + datum"
                 android:textSize="12sp" />
 
@@ -267,7 +266,7 @@
                 android:hint="FOUT: Geen naam bekend!"
                 android:inputType="textPersonName"
                 android:paddingTop="5sp"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:textStyle="bold" />
 
             <TextView
@@ -279,7 +278,7 @@
                 android:hint="Bijv. 2022-05-05 20:55:45"
                 android:inputType="textPersonName"
                 android:paddingTop="5sp"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -287,4 +286,4 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</LinearLayout>

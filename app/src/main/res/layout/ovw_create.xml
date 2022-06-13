@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="?attr/colorOnSurfaceVariant" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/creationLayout"
@@ -52,15 +53,14 @@
                             android:layout_height="76dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
-                            android:gravity="center_horizontal"
+                            android:background="?attr/colorSurfaceVariant"                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:text="Treinnummer"
                                 android:textSize="12sp" />
 
@@ -80,15 +80,14 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
-                            android:gravity="center_horizontal"
+                            android:background="?attr/colorSurfaceVariant"                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
@@ -112,14 +111,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
-                android:orientation="vertical">
+                android:background="?attr/colorSurfaceVariant"                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Plaatsbepaling"
                     android:textSize="12sp" />
 
@@ -136,14 +134,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Overweg(en)"
                     android:textSize="12sp" />
 

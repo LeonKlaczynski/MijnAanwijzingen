@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:elevation="2dp"
-    tools:context="org.treinchauffeur.mijnaanwijzingen.MainActivity">
-
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="2dp"
+        tools:context="org.treinchauffeur.mijnaanwijzingen.MainActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryContainer"
+                android:elevation="2dp"
+                app:menu="@menu/menu"
+                app:title="Mijn Aanwijzingen"
+                app:titleTextColor="?attr/colorOnPrimaryContainer"
+                app:titleTextAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                />
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/tutorialNotification"
@@ -52,21 +69,23 @@
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:theme="?attr/toolbarStyle"
             tools:context="org.treinchauffeur.mijnaanwijzingen.MainActivity">
 
             <ListView
                 android:id="@+id/lijst"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
                 android:divider="@null"
                 android:dividerHeight="0dp"
+                android:scrollbarThumbVertical="?attr/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                android:animateLayoutChanges="true"/>
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
@@ -77,17 +96,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="?attr/colorPrimaryContainer"
         android:clickable="true"
         android:gravity="center"
         android:text="Toevoegen"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:backgroundTint="@color/primary"
-        app:icon="@drawable/ic_add"
-        app:iconTint="@color/white"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        app:icon="@drawable/ic_outline_edit_24"
+        app:iconTint="?attr/colorOnPrimaryContainer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/STSlight" />
+        app:rippleColor="?attr/colorPrimary" />
 
     <TextView
         android:id="@+id/devView"
@@ -95,9 +113,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="!!! ONTWIKKELAAR !!!"
-        android:visibility="gone"
         android:textColor="#1A000000"
         android:textSize="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

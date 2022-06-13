@@ -33,7 +33,6 @@ public class CreationActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int TYPE = intent.getIntExtra("TYPE", R.layout.vr_create);
         setContentView(TYPE);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if(TYPE != 0) {
         switch(TYPE) {
@@ -63,7 +62,7 @@ public class CreationActivity extends AppCompatActivity {
                 break;
         }
             Aanwijzing nieuweAanwijzing = new Aanwijzing(aanwijzingType, "", null, "", -1, "", "", "", "", "", "", "");
-            getSupportActionBar().setTitle(actionbarString);
+            //getSupportActionBar().setTitle(actionbarString);
 
             //Hides all hints depending on user settings
             ConstraintLayout layout = findViewById(R.id.creationLayout);

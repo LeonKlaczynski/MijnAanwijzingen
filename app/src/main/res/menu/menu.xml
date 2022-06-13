@@ -20,12 +20,15 @@
         android:id="@+id/action_clearData"
         android:orderInCategory="100"
         android:title="Alles verwijderen"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="false"/>
     <item
         android:id="@+id/action_disclaimer"
         android:orderInCategory="100"
         android:title="Disclaimer"
-        app:showAsAction="never" />
+        app:showAsAction="always"
+        android:icon="@drawable/ic_outline_info_24"
+        android:iconTint="?attr/colorOnPrimaryContainer" />
     <item
         android:id="@+id/action_MockData"
         android:orderInCategory="100"
@@ -41,7 +44,7 @@
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_baseline_settings_24_white"
+        android:icon="@drawable/ic_outline_settings_24_onprimarycontainer"
         android:title="Over deze app"
         app:showAsAction="always" />
     <item

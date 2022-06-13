@@ -2,7 +2,9 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="?attr/colorOnSurfaceVariant"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -53,7 +55,7 @@
                             android:layout_height="76dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
+                            android:background="?attr/colorSurfaceVariant"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -61,13 +63,12 @@
                                 android:id="@+id/textViewTrNr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:text="Treinnummer"
                                 android:textSize="12sp" />
 
                             <EditText
                                 android:id="@+id/editTextTrNr"
-
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -82,7 +83,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:background="#F6F6F6"
+                            android:background="?attr/colorSurfaceVariant"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -90,7 +91,7 @@
                                 android:id="@+id/textViewtrdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="?attr/colorOnBackground"
                                 android:text="Treindienstleider"
                                 android:textSize="12sp" />
 
@@ -110,7 +111,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="5dp"
-                        android:background="#F6F6F6"
+                        android:background="?attr/colorSurfaceVariant"
                         android:gravity="center"
                         android:orientation="horizontal">
 
@@ -119,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textColor="@color/black"
+                            android:textColor="?attr/colorOnBackground"
                             android:text="Maximale snelheid"
                             android:textSize="12sp" />
 
@@ -141,14 +142,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Plaatsbepaling"
                     android:textSize="12sp" />
 
@@ -165,14 +166,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="#F6F6F6"
+                android:background="?attr/colorSurfaceVariant"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/colorOnBackground"
                     android:text="Reden"
                     android:textSize="12sp" />
 
@@ -197,7 +198,7 @@
                         android:layout_weight="1"
                         android:text="Hulpverleners"
                         android:buttonTint="@color/VR"
-                        android:textColor="@android:color/secondary_text_light"
+                        android:textColor="?attr/colorOnBackground"
                         android:textColorHighlight="@color/VR"
                         android:textColorLink="@color/VR" />
 
@@ -209,7 +210,7 @@
                         android:layout_weight="1"
                         android:buttonTint="@color/VR"
                         android:text="Schouwopdracht"
-                        android:textColor="@android:color/secondary_text_light"
+                        android:textColor="?attr/colorOnBackground"
                         android:textColorHighlight="@color/VR"
                         android:textColorLink="@color/VR" />
                 </LinearLayout>

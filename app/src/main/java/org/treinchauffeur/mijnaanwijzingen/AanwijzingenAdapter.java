@@ -1,10 +1,13 @@
 package org.treinchauffeur.mijnaanwijzingen;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,14 +44,14 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
         //Defining fields
+        MaterialCardView cardView = convertView.findViewById(R.id.lijstCardView);
+        TextView typeLongView = convertView.findViewById(R.id.textViewType);
         TextView locationView = convertView.findViewById(R.id.textViewLocation);
         TextView mainInfoView = convertView.findViewById(R.id.textViewMainInfo);
         TextView dateView = convertView.findViewById(R.id.textViewDate);
         TextView icon = convertView.findViewById(R.id.typeView);
-        LinearLayout layout = convertView.findViewById(R.id.item_layout_bg);
-        MaterialCardView cardView = convertView.findViewById(R.id.lijstCardView);
-
         //Setting general information regardless of type
+        typeLongView.setText(a.getLongType());
         locationView.setText(a.getLocatie());
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String dateString = format.format(a.getDatum());
@@ -60,46 +63,53 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
                 icon.setBackgroundResource(R.color.VR);
                 cardView.setRippleColorResource(R.color.VR);
                 icon.setText("VR");
-                layout.setBackgroundResource(R.color.VRlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.VRlight));
                 mainInfoView.setText("Snelheid: " + a.getVRsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_OVW:
                 icon.setBackgroundResource(R.color.OVW);
                 cardView.setRippleColorResource(R.color.OVW);
                 icon.setText("OVW");
-                layout.setBackgroundResource(R.color.OVWlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.OVWlight));
                 mainInfoView.setText("Overwegen: " + a.getOverwegen() + ".");
                 break;
             case Aanwijzing.TYPE_SB:
                 icon.setBackgroundResource(R.color.SB);
                 cardView.setRippleColorResource(R.color.SB);
                 icon.setText("SB");
-                layout.setBackgroundResource(R.color.SBlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.SBlight));
                 mainInfoView.setText("Snelheid: " + a.getSBsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_STS:
                 icon.setBackgroundResource(R.color.STS);
                 cardView.setRippleColorResource(R.color.STS);
                 icon.setText("STS");
-                layout.setBackgroundResource(R.color.STSlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.STSlight));
                 mainInfoView.setText("Sein: " + a.getSTSseinNr());
                 break;
             case Aanwijzing.TYPE_STSN:
                 icon.setBackgroundResource(R.drawable.border_stsn_icon);
                 cardView.setRippleColorResource(R.color.TTV);
                 icon.setText("STS");
-                layout.setBackgroundResource(R.color.STSNlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.STSNlight));
                 mainInfoView.setText("Sein: " + a.getSTSseinNr() + ". Overwegen: " + a.getOverwegen() + ". Bruggen: " + a.getSTSNbruggen());
                 break;
             case Aanwijzing.TYPE_TTV:
                 icon.setBackgroundResource(R.color.TTV);
                 cardView.setRippleColorResource(R.color.TTV);
                 icon.setText("TTV");
-                layout.setBackgroundResource(R.color.TTVlight);
+                //cardView.setStrokeColor(getContext().getResources().getColor(R.color.TTVlight));
                 mainInfoView.setText("Reden: " + a.getMiscInfo());
                 break;
         }
+
+
         return convertView;
+    }
+
+
+    private void expandView(ViewGroup v, Aanwijzing a) {
+
     }
 
 }

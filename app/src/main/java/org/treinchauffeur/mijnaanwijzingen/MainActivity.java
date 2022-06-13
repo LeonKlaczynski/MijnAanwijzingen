@@ -1,22 +1,33 @@
 package org.treinchauffeur.mijnaanwijzingen;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -26,12 +37,17 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import com.klaczynski.mijnaanwijzingen.R;
 
 import org.treinchauffeur.mijnaanwijzingen.io.InOutOperator;
@@ -51,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isDev;
     public static boolean showTextHints;
 
-
     /**
      * Draws interface (see individual annotations)
      * @param savedInstanceState
@@ -63,13 +78,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         io = new InOutOperator(MainActivity.this);
         io.systemUses24HourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher_mijnaanwijzingen_icon_white_foreground);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        MaterialToolbar tb = findViewById(R.id.topAppBar);
+        tb.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                onOptionsItemSelected(item);
+                return false;
+            }
+        });
         //Determining whether dev or not
         isDev = io.isDev();
         TextView devView = findViewById(R.id.devView);
-        if(isDev) devView.setVisibility(View.VISIBLE);
+        if (isDev) devView.setVisibility(View.VISIBLE);
 
         //Determining whether to show editText hints or not
         showTextHints = io.showHints();
@@ -90,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             tutorialNotification.setVisibility(View.GONE);
         }
 
-        //Defining list of aanwijzingen, if none existant -> create new
+        //Defining list of aanwijzingen, if none existent -> create new
         try {
             aanwijzingen = io.loadList(Definitions.LIJST_KEY);
         } catch (Exception e) {
@@ -105,8 +126,7 @@ public class MainActivity extends AppCompatActivity {
         lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                Aanwijzing a = aanwijzingen.get(pos);
-                showDialog(a);
+                showDialog(aanwijzingen.get(pos));
             }
         });
         lijst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -114,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> arg0, View view,
                                            int pos, long id) {
                 deletionDialog(pos, view);
-
                 return true;
             }
         });
@@ -130,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Dialog dialog = new Dialog(view.getContext());
+                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.setContentView(R.layout.dialog_aanwijzingen);
                 dialog.show();
@@ -194,12 +214,19 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+                Button buttonClose = dialog.findViewById(R.id.buttonClose);
+                buttonClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
 
         //Enabling pull down to refresh
         final SwipeRefreshLayout pullToRefresh = findViewById(R.id.swipeRefreshLayout);
-        pullToRefresh.setColorSchemeResources(R.color.primary); //can't be done in XML apparently
+        pullToRefresh.setColorSchemeResources(R.color.md_theme_light_primary); //can't be done in XML apparently
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -230,9 +257,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (Definitions.DEBUG || isDev)
             menu.findItem(R.id.action_MockData).setVisible(true);
-        if(Definitions.DEBUG || isDev)
+        if (Definitions.DEBUG || isDev)
             menu.findItem(R.id.action_revokeDev).setVisible(true);
-        if(Definitions.DEBUG || isDev)
+        if (Definitions.DEBUG || isDev)
             menu.findItem(R.id.action_tutorialNotification).setVisible(true);
         return true;
     }
@@ -297,6 +324,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void warningDialog(Activity a) {
         Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         viewDialog.setContentView(R.layout.dialog_disclaimer);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
@@ -317,11 +345,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void nameDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         viewDialog.setContentView(R.layout.dialog_name);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
         Button btnAdd = viewDialog.findViewById(R.id.buttonAdd);
-        EditText naamVeld = viewDialog.findViewById(R.id.editTextTextMcnName);
+        TextInputLayout til = viewDialog.findViewById(R.id.editTextTextMcnName);
+        EditText naamVeld = til.getEditText();
         if (!driverName.equalsIgnoreCase(""))
             naamVeld.setText(driverName);
 
@@ -343,10 +373,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Shows Aanwijzing data when list item Onclick is called
+     *
      * @param a
      */
     private void showDialog(Aanwijzing a) {
         Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         switch (a.getType()) {
             case Aanwijzing.TYPE_VR:
                 viewDialog.setContentView(R.layout.vr_view);
@@ -362,8 +394,10 @@ public class MainActivity extends AppCompatActivity {
                 CheckBox cbPersonnelVR = viewDialog.findViewById(R.id.checkBoxPersonnelVR);
                 TextView nameVR = viewDialog.findViewById(R.id.editTextNameDriverVR);
                 TextView dateVR = viewDialog.findViewById(R.id.editTextDateVR);
+
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateString = format.format(a.getDatum());
+
                 trNrViewVR.setText(Integer.toString(a.getTreinNr()));
                 trdlViewVR.setText(a.getTrdl());
                 locationViewVR.setText(a.getLocatie());
@@ -373,7 +407,6 @@ public class MainActivity extends AppCompatActivity {
                 cbPersonnelVR.setChecked(a.getVRhulpverleners());
                 nameVR.setText(a.getNaamMcn());
                 dateVR.setText(dateString);
-
                 break;
             case Aanwijzing.TYPE_OVW:
                 viewDialog.setContentView(R.layout.ovw_view);
@@ -386,8 +419,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView crossingsOVW = viewDialog.findViewById(R.id.editTextCrossings);
                 TextView nameOVW = viewDialog.findViewById(R.id.editTextNameDriver);
                 TextView dateOVW = viewDialog.findViewById(R.id.editTextDate);
+
                 SimpleDateFormat formatOVW = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateStringOVW = formatOVW.format(a.getDatum());
+
                 trNrViewOVW.setText(Integer.toString(a.getTreinNr()));
                 trdlViewOVW.setText(a.getTrdl());
                 locationViewOVW.setText(a.getLocatie());
@@ -408,8 +443,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView nameSB = viewDialog.findViewById(R.id.editTextNameDriver);
                 TextView dateSB = viewDialog.findViewById(R.id.editTextDate);
                 CheckBox cbLAE = viewDialog.findViewById(R.id.checkBoxLAE);
+
                 SimpleDateFormat formatSB = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateStringSB = formatSB.format(a.getDatum());
+
                 trNrViewSB.setText(Integer.toString(a.getTreinNr()));
                 trdlViewSB.setText(a.getTrdl());
                 locationViewSB.setText(a.getLocatie());
@@ -430,8 +467,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView signalSTS = viewDialog.findViewById(R.id.editTextSignal);
                 TextView nameSTS = viewDialog.findViewById(R.id.editTextNameDriver);
                 TextView dateSTS = viewDialog.findViewById(R.id.editTextDate);
+
                 SimpleDateFormat formatSTS = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateStringSTS = formatSTS.format(a.getDatum());
+
                 trNrViewSTS.setText(Integer.toString(a.getTreinNr()));
                 trdlViewSTS.setText(a.getTrdl());
                 locationViewSTS.setText(a.getLocatie());
@@ -453,8 +492,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView bridgesSTSN = viewDialog.findViewById(R.id.editTextBridges);
                 TextView nameSTSN = viewDialog.findViewById(R.id.editTextNameDriver);
                 TextView dateSTSN = viewDialog.findViewById(R.id.editTextDate);
+
                 SimpleDateFormat formatSTSN = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateStringSTSN = formatSTSN.format(a.getDatum());
+
                 trNrViewSTSN.setText(Integer.toString(a.getTreinNr()));
                 trdlViewSTSN.setText(a.getTrdl());
                 locationViewSTSN.setText(a.getLocatie());
@@ -475,8 +516,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView reasonTTV = viewDialog.findViewById(R.id.editTextReason);
                 TextView nameTTV = viewDialog.findViewById(R.id.editTextNameDriver);
                 TextView dateTTV = viewDialog.findViewById(R.id.editTextDate);
+
                 SimpleDateFormat formatTTV = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String dateStringTTV = formatTTV.format(a.getDatum());
+
                 trNrViewTTV.setText(Integer.toString(a.getTreinNr()));
                 trdlViewTTV.setText(a.getTrdl());
                 locationViewTTV.setText(a.getLocatie());
@@ -493,6 +536,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void deletionDialog(int pos, View v) {
         Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         viewDialog.setContentView(R.layout.dialog_delete);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
@@ -514,6 +558,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Removes item from list with animation & updates view afterwards.
+     * @param rowView Item view to delete
+     * @param position position in list
+     */
     protected void removeListItem(View rowView, final int position) {
         final Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_out_right_full);
         rowView.startAnimation(animation);
@@ -525,7 +574,7 @@ public class MainActivity extends AppCompatActivity {
                 updateView(true);
                 animation.cancel();
             }
-        },200);
+        }, 200);
     }
 
     /**
@@ -533,6 +582,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void deleteAllDialog() {
         Dialog viewDialog = new Dialog(MainActivity.this);
+        viewDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         viewDialog.setContentView(R.layout.dialog_delete_all);
         viewDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         viewDialog.show();
@@ -567,6 +617,7 @@ public class MainActivity extends AppCompatActivity {
         ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
         ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
     }
+
     public void updateView(boolean save) {
         ListView lijst = findViewById(R.id.lijst);
         ArrayList<Aanwijzing> aTemp = new ArrayList<>();
@@ -574,7 +625,8 @@ public class MainActivity extends AppCompatActivity {
         ((ArrayAdapter) lijst.getAdapter()).clear();
         ((ArrayAdapter) lijst.getAdapter()).addAll(aTemp);
         ((AanwijzingenAdapter) lijst.getAdapter()).notifyDataSetChanged();
-        if(save) io.saveList(aanwijzingen, Definitions.LIJST_KEY);
+
+        if (save) io.saveList(aanwijzingen, Definitions.LIJST_KEY);
     }
 
     /**
@@ -585,5 +637,7 @@ public class MainActivity extends AppCompatActivity {
         io.saveList(aanwijzingen, Definitions.LIJST_KEY);
         super.onStop();
     }
+
+
 
 }

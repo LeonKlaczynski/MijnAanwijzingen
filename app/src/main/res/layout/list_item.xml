@@ -3,69 +3,104 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/lijstCardView"
     android:layout_width="match_parent"
-    android:layout_height="90sp"
-    android:layout_margin="5dp"
-    app:circularflow_radiusInDP="2dp"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardBackgroundColor="?attr/colorOnPrimary"
+    app:cardCornerRadius="20sp"
     app:cardUseCompatPadding="true"
-    app:cardCornerRadius="12sp"
-    >
+    app:strokeColor="?attr/colorSecondaryContainer"
+    app:strokeWidth="2dp">
 
     <LinearLayout
-        android:id="@+id/item_layout_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/typeView"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/VR"
-            android:gravity="center"
-            android:scaleType="center"
-            android:text="VR"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/item_layout_bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5sp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewLocation"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:hint="FOUT! Geen data."
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="5dp">
 
-            <TextView
-                android:id="@+id/textViewMainInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:hint="FOUT! Geen data."
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                <TextView
+                    android:id="@+id/textViewType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="FOUT! Geen data."
+                    android:maxLines="1"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/textViewDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:ellipsize="end"
+                    android:hint="FOUT! Geen datum."
+                    android:maxLines="1"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/textViewDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:hint="FOUT! Geen data."
-                android:ellipsize="end"
-                android:maxLines="1"/>
+                <TextView
+                    android:id="@+id/textViewLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:ellipsize="end"
+                    android:hint="FOUT! Geen data."
+                    android:maxLines="1"
+                    android:textSize="14sp" />
 
+                <TextView
+                    android:id="@+id/textViewMainInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:ellipsize="end"
+                    android:hint="FOUT! Geen data."
+                    android:maxLines="1"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                app:cardCornerRadius="30dp"
+                app:cardUseCompatPadding="true"
+                app:strokeWidth="0dp">
+
+                <TextView
+                    android:id="@+id/typeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/VR"
+                    android:gravity="center"
+                    android:scaleType="center"
+                    android:text="VR"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
-
+        <LinearLayout
+            android:id="@+id/viewContainer"
+            android:visibility="gone"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
