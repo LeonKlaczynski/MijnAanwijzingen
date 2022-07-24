@@ -44,7 +44,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
         //Defining fields
-        MaterialCardView cardView = convertView.findViewById(R.id.lijstCardView);
+        LinearLayout cardView = convertView.findViewById(R.id.lijstItemView);
         TextView typeLongView = convertView.findViewById(R.id.textViewType);
         TextView locationView = convertView.findViewById(R.id.textViewLocation);
         TextView mainInfoView = convertView.findViewById(R.id.textViewMainInfo);
@@ -61,42 +61,36 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         switch (a.getType()) {
             case Aanwijzing.TYPE_VR:
                 icon.setBackgroundResource(R.color.VR);
-                cardView.setRippleColorResource(R.color.VR);
                 icon.setText("VR");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.VRlight));
                 mainInfoView.setText("Snelheid: " + a.getVRsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_OVW:
                 icon.setBackgroundResource(R.color.OVW);
-                cardView.setRippleColorResource(R.color.OVW);
                 icon.setText("OVW");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.OVWlight));
                 mainInfoView.setText("Overwegen: " + a.getOverwegen() + ".");
                 break;
             case Aanwijzing.TYPE_SB:
                 icon.setBackgroundResource(R.color.SB);
-                cardView.setRippleColorResource(R.color.SB);
                 icon.setText("SB");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.SBlight));
                 mainInfoView.setText("Snelheid: " + a.getSBsnelheid() + " km/h. Reden: " + a.getMiscInfo());
                 break;
             case Aanwijzing.TYPE_STS:
                 icon.setBackgroundResource(R.color.STS);
-                cardView.setRippleColorResource(R.color.STS);
                 icon.setText("STS");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.STSlight));
                 mainInfoView.setText("Sein: " + a.getSTSseinNr());
                 break;
             case Aanwijzing.TYPE_STSN:
                 icon.setBackgroundResource(R.drawable.border_stsn_icon);
-                cardView.setRippleColorResource(R.color.TTV);
                 icon.setText("STS");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.STSNlight));
                 mainInfoView.setText("Sein: " + a.getSTSseinNr() + ". Overwegen: " + a.getOverwegen() + ". Bruggen: " + a.getSTSNbruggen());
                 break;
             case Aanwijzing.TYPE_TTV:
                 icon.setBackgroundResource(R.color.TTV);
-                cardView.setRippleColorResource(R.color.TTV);
                 icon.setText("TTV");
                 //cardView.setStrokeColor(getContext().getResources().getColor(R.color.TTVlight));
                 mainInfoView.setText("Reden: " + a.getMiscInfo());

@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -79,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         io = new InOutOperator(MainActivity.this);
         io.systemUses24HourFormat = DateFormat.is24HourFormat(getApplicationContext()); //This is stupid but necessary because Americans exist
 
-        MaterialToolbar tb = findViewById(R.id.topAppBar);
-        tb.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 onOptionsItemSelected(item);
@@ -90,7 +91,11 @@ public class MainActivity extends AppCompatActivity {
         //Determining whether dev or not
         isDev = io.isDev();
         TextView devView = findViewById(R.id.devView);
-        if (isDev) devView.setVisibility(View.VISIBLE);
+        if (isDev) {
+            devView.setVisibility(View.VISIBLE);
+            toolbar.getMenu().findItem(R.id.action_revokeDev).setVisible(true);
+            toolbar.getMenu().findItem(R.id.action_MockData).setVisible(true);
+        }
 
         //Determining whether to show editText hints or not
         showTextHints = io.showHints();
@@ -118,25 +123,6 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "onCreate: ", e.fillInStackTrace());
             aanwijzingen = new ArrayList<Aanwijzing>();
         }
-
-        //Defining list + add items + add click listeners
-        AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
-        ListView lijst = findViewById(R.id.lijst);
-        lijst.setAdapter(adapter);
-        lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                showDialog(aanwijzingen.get(pos));
-            }
-        });
-        lijst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View view,
-                                           int pos, long id) {
-                deletionDialog(pos, view);
-                return true;
-            }
-        });
 
         //Fab that launches dialog to create new Aanwijzing (pick a type)
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
@@ -221,6 +207,46 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        //Defining list + add items + add click listeners
+        AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
+        ListView lijst = findViewById(R.id.lijst);
+        lijst.setAdapter(adapter);
+        lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                showDialog(aanwijzingen.get(pos));
+            }
+        });
+        lijst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View view,
+                                           int pos, long id) {
+                deletionDialog(pos, view);
+                return true;
+            }
+        });
+        lijst.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                ExtendedFloatingActionButton fab = findViewById(R.id.fab);
+                if (firstVisibleItem == 0) {
+                    // check if we reached the top or bottom of the list
+                    View v = lijst.getChildAt(0);
+                    int offset = (v == null) ? 0 : v.getTop();
+                    if (offset == 0) {
+                        fab.extend();
+                        return;
+                    }
+                } else {
+                    fab.shrink();
+                }
             }
         });
 
