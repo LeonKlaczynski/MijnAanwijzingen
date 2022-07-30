@@ -41,10 +41,10 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Aanwijzing a = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_material3, parent, false);
         }
         //Defining fields
-        LinearLayout cardView = convertView.findViewById(R.id.lijstItemView);
+        MaterialCardView cardView = convertView.findViewById(R.id.lijstItemView);
         TextView typeLongView = convertView.findViewById(R.id.textViewType);
         TextView locationView = convertView.findViewById(R.id.textViewLocation);
         TextView mainInfoView = convertView.findViewById(R.id.textViewMainInfo);
@@ -53,7 +53,7 @@ public class AanwijzingenAdapter extends ArrayAdapter<Aanwijzing> {
         //Setting general information regardless of type
         typeLongView.setText(a.getLongType());
         locationView.setText(a.getLocatie());
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String dateString = format.format(a.getDatum());
         dateView.setText(dateString);
 

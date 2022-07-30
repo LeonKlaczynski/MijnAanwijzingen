@@ -23,13 +23,11 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimaryContainer"
                 android:elevation="2dp"
                 app:menu="@menu/menu"
                 app:title="Mijn Aanwijzingen"
-                app:titleTextColor="?attr/colorOnPrimaryContainer"
                 app:titleTextAppearance="@style/TextAppearance.Material3.ActionBar.Title"
-                />
+                app:titleTextColor="?attr/colorOnPrimaryContainer"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

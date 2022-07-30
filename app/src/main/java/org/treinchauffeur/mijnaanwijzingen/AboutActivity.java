@@ -42,7 +42,7 @@ public class AboutActivity extends AppCompatActivity {
         io = new InOutOperator(AboutActivity.this);
 
         TextView versieView = findViewById(R.id.textViewVersion);
-        versieView.setText("Versie " + BuildConfig.VERSION_NAME + " (BETA)");
+        versieView.setText("Versie " + BuildConfig.VERSION_NAME + " (ALPHA)");
 
         //Settings
         MaterialCheckBox switchHints = findViewById(R.id.switchHint);
@@ -62,7 +62,7 @@ public class AboutActivity extends AppCompatActivity {
 
         //Name changing
         TextView nameView = findViewById(R.id.textViewName);
-        nameView.setText("'"+MainActivity.driverName+"'");
+        nameView.setText(MainActivity.driverName);
         MaterialButton nameButton = findViewById(R.id.buttonChangeName);
         nameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,7 +148,7 @@ public class AboutActivity extends AppCompatActivity {
                 MainActivity.driverName = naamVeld.getText().toString();
                 Snackbar.make(findViewById(R.id.aboutLayout), "Opgeslagen naam: " + naamVeld.getText().toString(), Snackbar.LENGTH_SHORT).show();
                 TextView nameView = findViewById(R.id.textViewName);
-                nameView.setText("'"+MainActivity.driverName+"'");
+                nameView.setText(naamVeld.getText().toString());
                 viewDialog.dismiss();
             }
         });

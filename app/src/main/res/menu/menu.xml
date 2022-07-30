@@ -28,7 +28,8 @@
         android:title="Disclaimer"
         app:showAsAction="always"
         android:icon="@drawable/ic_outline_info_24"
-        android:iconTint="?attr/colorOnPrimaryContainer" />
+        android:iconTint="?attr/colorOnPrimaryContainer"
+        />
     <item
         android:id="@+id/action_MockData"
         android:orderInCategory="100"
@@ -45,6 +46,7 @@
         android:id="@+id/action_about"
         android:orderInCategory="100"
         android:icon="@drawable/ic_outline_settings_24_onprimarycontainer"
+        android:iconTint="?attr/colorOnPrimaryContainer"
         android:title="Over deze app"
         app:showAsAction="always" />
     <item

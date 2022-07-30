@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="?attr/colorOnSurfaceVariant"
+    android:background="?attr/colorBackgroundFloating"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="0dp">
 
@@ -50,7 +50,7 @@
                         android:layout_height="76dp"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="?attr/colorSurfaceVariant"
+                        android:background="?attr/colorSurface"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
@@ -83,7 +83,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="?attr/colorSurfaceVariant"                        android:gravity="center_horizontal"
+                        android:background="?attr/colorSurface"                        android:gravity="center_horizontal"
                         android:orientation="vertical">
 
                         <TextView
@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:background="?attr/colorSurfaceVariant"
+                    android:background="?attr/colorSurface"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="?attr/colorSurfaceVariant"
+            android:background="?attr/colorSurface"
             android:orientation="vertical">
 
             <TextView
@@ -176,7 +176,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="?attr/colorSurfaceVariant"
+            android:background="?attr/colorSurface"
             android:orientation="vertical">
 
             <TextView
@@ -246,7 +246,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:background="?attr/colorSurfaceVariant"
+            android:background="?attr/colorSurface"
             android:orientation="vertical">
 
             <TextView
