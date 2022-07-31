@@ -14,21 +14,14 @@
         android:animateLayoutChanges="true"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:elevation="2dp"
+                app:titleTextColor="?attr/colorOnPrimaryContainer"
                 app:menu="@menu/menu"
-                app:title="Mijn Aanwijzingen"
-                app:titleTextAppearance="@style/TextAppearance.Material3.ActionBar.Title"
-                app:titleTextColor="?attr/colorOnPrimaryContainer"/>
-        </com.google.android.material.appbar.AppBarLayout>
+                app:title="Mijn Aanwijzingen"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/tutorialNotification"

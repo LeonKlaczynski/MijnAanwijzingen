@@ -214,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
         AanwijzingenAdapter adapter = new AanwijzingenAdapter(MainActivity.this, aanwijzingen);
         ListView lijst = findViewById(R.id.lijst);
         lijst.setAdapter(adapter);
+        lijst.setOverScrollMode(View.OVER_SCROLL_ALWAYS);
         lijst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
